@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dashboard_asset/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('dashboard_asset/images/logo-only.png') }}">
     <title>Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('dashboard_asset/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -60,19 +60,15 @@
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
                         <b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="{{ asset('dashboard_asset/images/logo-icon.png') }}" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo icon -->
-                            <img src="{{ asset('dashboard_asset/images/logo-light-icon.png') }}" alt="homepage" class="light-logo" />
+                            <img src="{{ asset('dashboard_asset/images/logo-only.png') }}" alt="homepage" class="light-logo">
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
-                        <span>
-                         <!-- dark Logo text -->
-                         <img src="{{ asset('dashboard_asset/images/logo-text.png') }}" alt="homepage" class="dark-logo" />
-                         <!-- Light Logo text -->    
-                         <img src="{{ asset('dashboard_asset/images/logo-light-text.png') }}" class="light-logo" alt="homepage" /></span> </a>
+                        <span style="">
+                         <img src="{{ asset('dashboard_asset/images/logo-text.png') }}" class="light-logo" alt="homepage">
+                        </span>
+                    </a>
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -118,7 +114,7 @@
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    <li><a href="{{ route('logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -140,7 +136,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- User profile -->
-                <div class="user-profile" style="background: url({{ asset('dashboard_asset/images/background/user-info.jpg') }}) no-repeat;">
+                <div class="user-profile" style="background: url({{ asset('dashboard_asset/images/background/bguser.jpg') }}) no-repeat;">
                     <!-- User profile image -->
                     <div class="profile-img"> <img src="{{ asset('dashboard_asset/images/genu.png') }}" alt="user" /> </div>
                     <!-- User profile text-->

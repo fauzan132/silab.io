@@ -66,7 +66,7 @@
        
         <div class="form-group m-b-0">
           <div class="col-sm-12 text-center">
-            <p>Belum punya akun? <a href="{{ url('/register') }}" class="text-primary m-l-5"><b>Daftar</b></a></p>
+            <!-- <p>Belum punya akun? <a href="{{ url('/register') }}" class="text-primary m-l-5"><b>Daftar</b></a></p> -->
           </div>
         </div>
       </form>

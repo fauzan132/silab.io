@@ -33,13 +33,13 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('login_asset/images/bg-01.jpg');">
 			
-			<div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-54">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-30">
 					<div class="col-sm-12 col-xs-12">
 							<img class="logo" src="{{ asset('login_asset/images/logo.png') }}">
 					</div>
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
 				@csrf
-					<span class="login100-form-title p-b-49">
+					<span class="login100-form-title p-b-20">
 						Masuk
 					</span>
 
@@ -54,7 +54,7 @@
 						<input class="input100" type="password" name="password" placeholder="Masukan kata sandi">
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
-					<div class="text-right p-t-8 p-b-31">
+					<div class="text-right p-t-8 p-b-20">
 						<a href="{{ route('password.request') }}">
 							Lupa Kata Sandi ??
 						</a>
@@ -68,7 +68,7 @@
 						</div>
 					</div>
 					<div class="flex-col-c p-t-30">
-						<span class="txt1 p-b-17">
+						<span class="txt1">
 							Belum Punya akun? 
 							<a href="{{ url('/register') }}" class="txt2">
 							Daftar

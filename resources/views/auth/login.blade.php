@@ -38,7 +38,7 @@
 	  <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('login') }}">
 		@csrf
         <a href="javascript:void(0)" class="text-center db"><img style="width:130px;" src="{{ asset('login_asset/images/logo.png') }}" alt="Home" /></a>  
-        
+        <center><h3>Masuk</h3></center>
         <div class="form-group m-t-40">
           <div class="col-xs-12">
             <input class="form-control" type="email" required="" name="email" placeholder="Email Pengguna">

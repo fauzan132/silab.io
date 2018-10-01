@@ -10,8 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('login_asset/images/logo.png') }}">
-<title>Pixel Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap</title>
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('login_asset/images/fav.png') }}">
+<title>Silab - PT Surveyor Indonesia</title>
 <!-- Bootstrap Core CSS -->
 <link href="{{ asset('login_asset/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
 <!-- animation CSS -->
@@ -41,12 +41,12 @@
         
         <div class="form-group m-t-40">
           <div class="col-xs-12">
-            <input class="form-control" type="text" required="" placeholder="Email Pengguna">
+            <input class="form-control" type="email" required="" name="email" placeholder="Email Pengguna">
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input class="form-control" type="password" required="" placeholder="Kata Sandi">
+            <input class="form-control" type="password" required="" name="password" placeholder="Kata Sandi">
           </div>
         </div>
         <div class="form-group">

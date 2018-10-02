@@ -1,7 +1,5 @@
-
-
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en">
 
 <!-- Mirrored from wrappixel.com/demos/admin-templates/pixeladmin/inverse-rtl/login2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Oct 2018 07:55:00 GMT -->
 <head>
@@ -41,12 +39,30 @@
         <center><h3>Masuk</h3></center>
         <div class="form-group m-t-40">
           <div class="col-xs-12">
-            <input class="form-control" type="email" required="" name="email" placeholder="Email Pengguna">
+            <div class="input-grup">
+              <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" placeholder="Email Pengguna" value="{{ old('id_anggota') }}" required autofocus>
+            </div>
+            <div class="input-grup">
+              @if ($errors->has('email'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+              @endif
+            </div>
           </div>
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input class="form-control" type="password" required="" name="password" placeholder="Kata Sandi">
+            <div class="input-grup">
+              <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Kata Sandi" required>
+            </div>
+            <div class="input-grup">
+              @if ($errors->has('password'))
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $errors->first('password') }}</strong>
+                </span>
+              @endif
+            </div>
           </div>
         </div>
         <div class="form-group">

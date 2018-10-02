@@ -68,7 +68,7 @@
         <div class="form-group">
           <div class="col-md-12">
             <div class="checkbox checkbox-primary pull-left p-t-0">
-              <input id="checkbox-signup" type="checkbox">
+              <input id="checkbox-signup" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
               <label for="checkbox-signup" class="p-r-20"> Ingatkan Saya </label>
             </div>
 			<a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Lupa Password </a> 

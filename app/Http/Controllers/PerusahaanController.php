@@ -14,6 +14,7 @@ class PerusahaanController extends Controller
     public function index()
     {
         //
+        return view('admin.perusahaan.listperusahaan');
     }
 
     /**

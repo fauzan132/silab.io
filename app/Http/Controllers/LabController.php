@@ -14,6 +14,7 @@ class LabController extends Controller
     public function index()
     {
         //
+        return view('admin.lab.listlab');
     }
 
     /**

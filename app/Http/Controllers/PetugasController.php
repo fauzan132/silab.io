@@ -43,7 +43,7 @@ class PetugasController extends Controller
             'notelp_petugas' => $request->notelp_petugas,
 
                 ]);
-        return redirect()->route('pasien.index')->with('message', 'Data berhasil diinput');
+        return redirect()->route('petugas.index')->with('message', 'Data berhasil diinput');
     }
 
     /**
@@ -82,7 +82,7 @@ class PetugasController extends Controller
         Petugas::find($id)->update(['nama_petugas'=>$request->nama_petugas]);
         Petugas::find($id)->update(['alamat_petugas'=>$request->alamat_petugas]);
         Petugas::find($id)->update(['notelp_petugas'=>$request->notelp_petugas]);
-        return redirect()->route('pasien.index');
+        return redirect()->route('petugas.index');
     }
 
     /**
@@ -94,6 +94,6 @@ class PetugasController extends Controller
     public function destroy($id)
     {
         Petugas::find($id)->delete();
-        return redirect()->route('petugas.show')->with('message', 'Data berhasil di hapus');
+        return redirect()->route('petugas.index')->with('message', 'Data berhasil di hapus');
     }
 }

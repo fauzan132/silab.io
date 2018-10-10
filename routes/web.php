@@ -36,3 +36,20 @@ Route::group(['middleware' => ['web','auth']], function(){
 
 //PETUGAS
 Route::resource('petugas','PetugasController');
+
+
+//PERUSAHAAN
+Route::resource('perusahaan','PerusahaanController');
+
+
+//LAB
+Route::resource('lab','LabController');
+
+
+//PENGUJIAN
+Route::resource('pengujian','PengujianController');
+Route::get('/detailpengujian','PengujianController@transaksi');
+
+
+//BARANG
+Route::resource('barang','BarangController');

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Petugas;
 use Illuminate\Http\Request;
 
-class PetugasController extends Controller
+class PerusahaanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class PetugasController extends Controller
      */
     public function index()
     {
-        $data['data']=Petugas::get();
-        return view('admin.petugas.listpetugas', $data);
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class PetugasController extends Controller
      */
     public function create()
     {
-        return view('admin.petugas.formpetugas');
+        //
     }
 
     /**
@@ -36,14 +34,7 @@ class PetugasController extends Controller
      */
     public function store(Request $request)
     {
-        Petugas::create([
-            'user_id' => $request->user_id,
-            'nama_petugas' => $request->nama_petugas,
-            'alamat_petugas'=>$request->alamat_petugas,
-            'notelp_petugas' => $request->notelp_petugas,
-
-                ]);
-        return redirect()->route('pasien.index')->with('message', 'Data berhasil diinput');
+        //
     }
 
     /**
@@ -54,8 +45,7 @@ class PetugasController extends Controller
      */
     public function show($id)
     {
-        $data['data']=Petugas::find($id);
-        return view('admin.petugas.detailpetugas', $data);
+        //
     }
 
     /**
@@ -66,8 +56,7 @@ class PetugasController extends Controller
      */
     public function edit($id)
     {
-        $data['data']=Petugas::find($id);
-        return view('admin.petugas.formubahpetugas', $data);
+        //
     }
 
     /**
@@ -79,10 +68,7 @@ class PetugasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Petugas::find($id)->update(['nama_petugas'=>$request->nama_petugas]);
-        Petugas::find($id)->update(['alamat_petugas'=>$request->alamat_petugas]);
-        Petugas::find($id)->update(['notelp_petugas'=>$request->notelp_petugas]);
-        return redirect()->route('pasien.index');
+        //
     }
 
     /**
@@ -93,7 +79,6 @@ class PetugasController extends Controller
      */
     public function destroy($id)
     {
-        Petugas::find($id)->delete();
-        return redirect()->route('petugas.show')->with('message', 'Data berhasil di hapus');
+        //
     }
 }

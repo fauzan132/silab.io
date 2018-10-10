@@ -11,7 +11,7 @@ class Pengujian extends Model
      public $incrementing =true;
      public $timestamps=true;
      protected $fillable = [
-       'id_petugas','id_perusahaan','id_barang','jumlah_barang','total_harga','status_pembayaran','status_barang',
+       'id_petugas','id_perusahaan','total_harga','status_pembayaran','status_barang',
        'hasil_pengujian','created_at','updated_at',
      ];
 }

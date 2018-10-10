@@ -31,3 +31,8 @@ Route::group(['middleware' => ['web','auth']], function(){
         }
     });
 });
+
+
+
+//PETUGAS
+Route::resource('petugas','PetugasController');

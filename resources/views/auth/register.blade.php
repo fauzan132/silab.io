@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" >
 
 <!-- Mirrored from wrappixel.com/demos/admin-templates/pixeladmin/inverse-rtl/login2.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Oct 2018 07:55:00 GMT -->
 <head>

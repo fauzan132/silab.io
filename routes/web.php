@@ -16,7 +16,7 @@
 Route::group(['middleware' => 'web'], function(){
     //redirect to login
     // Route::auth();
-    Auth::routes(['verify' => true, 'register' => false]);
+    Auth::routes(['verify' => true, 'register' => true]);
 });
 Route::group(['middleware' => ['web','auth']], function(){
     //redirect to login

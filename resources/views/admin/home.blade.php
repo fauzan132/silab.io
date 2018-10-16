@@ -84,7 +84,7 @@
                     <div class="col-lg-12">
                     <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Selamat Datang</h4></div>
+                                <h4 class="m-b-0 text-white">Selamat Datang </h4></div>
                             <div class="card-body">
                                 <h3 class="card-title">Sistem Informasi Labs</h3>
                                 <p class="card-text">Selamat Datang di Aplikasi Labs PT Surveyor Indonesia</p>

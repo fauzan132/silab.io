@@ -5,13 +5,13 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Tambah Data Petugas</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Tambah Data Barang</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href="javascript:void(0)">Home</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Data Petugas</a></li>
-                            <li class="breadcrumb-item active">Tambah Data Petugas</li>
+                            <li class="breadcrumb-item"><a href="#">Data Barang</a></li>
+                            <li class="breadcrumb-item active">Tambah Data Barang</li>
                         </ol>
                     </div>
                 </div>
@@ -27,39 +27,33 @@
                         <div class="card-body">
                                 <div class="d-flex no-block align-self-center">
                                     <div>
-                                        <h4 class="card-title">Form Tambah Petugas</h4>
+                                        <h4 class="card-title">Form Tambah Barang</h4>
                                     </div> 
                                 </div>
                                
                                 <form class="form">
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Nama Petugas</label>
+                                        <label for="example-text-input" class="col-2 col-form-label">Nama Barang</label>
                                         <div class="col-10">
-                                            <input class="form-control" name="nama_petugas" type="text" value="Nama Petugas" id="example-text-input">
+                                            <input class="form-control" name="nama_barang" type="text" value="Nama Barang" id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Nama Laboratorium</label>
+                                        <div class="col-10">
+                                            <input class="form-control" name="nama_lab" type="text" value="Nama Laboratorium" id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="example-search-input" class="col-2 col-form-label">Alamat</label>
+                                        <label for="example-search-input" class="col-2 col-form-label">Keterangan</label>
                                         <div class="col-10">
-                                        <textarea class="form-control" rows="3" name="alamat_petugas"></textarea>
+                                        <textarea class="form-control" rows="3" name="keterangan"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                                        <label for="example-tel-input" class="col-2 col-form-label">Harga</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="email" name="email" placeholder="admin@example.com" id="example-email-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-password-input" class="col-2 col-form-label">Password</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="password" name="password" placeholder="***" id="example-password-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-tel-input" class="col-2 col-form-label">No Telp</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="number" name="notelp_petugas" placeholder="contoh:0893728XXXX" id="example-tel-input">
+                                            <input class="form-control" type="number" name="harga" placeholder="Rp.XXXX" id="example-tel-input">
                                         </div>
                                     </div>
                                     <div class="form-group">

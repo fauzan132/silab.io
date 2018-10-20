@@ -11,6 +11,6 @@ class Lab extends Model
      public $incrementing =true;
      public $timestamps=true;
      protected $fillable = [
-       'nama_lab','tempat_lab','keterangan','created_at','updated_at'
+       'nama_lab','tempat_lab','keterangan','created_at','updated_at' 
      ];
 }

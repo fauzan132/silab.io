@@ -41,34 +41,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($data as $row => $value)
                                             <tr>
-                                                <td>Iqbal</td>
-                                                <td>Cecep</td>
-                                                <td>Javan</td>
-                                                <td>Rp 90.000</td>
-                                                <td>file...</td>
-                                                <td>Proses</td>
-                                                <td>file....</td>
+                                                <td>{{ $value->id_petugas }}</td>
+                                                <td>{{ $value->id_petugas_lab }}</td>
+                                                <td>{{ $value->nama_perusahaan }}</td>
+                                                <td>{{ $value->total_harga }}</td>
+                                                <td>{{ $value->bukti_pembayaran }}</td>
+                                                <td>{{ $value->status_pengujian }}</td>
+                                                <td>{{ $value->hasil_pengujian }}</td>
                                                 <td>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
+                                                <form action="{{ route('pengujian.destroy', $value->id_pengujian) }}" method="post">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
+                                                    <a href="{{ route('pengujian.edit', $value->id_pengujian) }}" type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
+                                                    <button type="submit" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
+                                                </form>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>Iqbal</td>
-                                                <td>Cecep</td>
-                                                <td>Javan</td>
-                                                <td>Rp 90.000</td>
-                                                <td>file...</td>
-                                                <td>Proses</td>
-                                                <td>file....</td>
-                                                <td>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
-                                                </td>
-                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

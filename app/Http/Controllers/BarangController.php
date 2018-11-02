@@ -17,7 +17,8 @@ class BarangController extends Controller
     {
         //
         $data['data']=Barang::get(); 
-        return view('admin.barang.listbarang')->with($data);
+        return view('admin.barang.listbarang')
+        ->with($data);
     }
 
     /**
@@ -46,7 +47,8 @@ class BarangController extends Controller
             'nama_barang' => $request->nama_barang,
             'harga' => $request->harga
                 ]);
-        return redirect()->route('barang.index')->with('message', 'Data berhasil disimpan');
+        return redirect()->route('barang.index')
+        ->with('message', 'Data berhasil disimpan');
     }
 
     /**
@@ -101,6 +103,7 @@ class BarangController extends Controller
     public function destroy($id)
     {
         Barang::find($id)->delete();
-        return redirect()->route('barang.index')->with('message', 'Data berhasil dihapus');
+        return redirect()->route('barang.index')
+        ->with('message', 'Data berhasil dihapus');
     }
 }

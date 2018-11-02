@@ -15,7 +15,8 @@ class PetugasController extends Controller
     public function index()
     {
         $data['data']=Petugas::get();
-        return view('admin.petugas.listpetugas', $data);
+        return view('admin.petugas.listpetugas')
+        ->with($data);
     }
 
     /**
@@ -43,7 +44,8 @@ class PetugasController extends Controller
             'notelp_petugas' => $request->notelp_petugas,
             'status_petugas' => $request->status_petugas
                 ]);
-        return redirect()->route('petugas.index')->with('message', 'Data berhasil diinput');
+        return redirect()->route('petugas.index')
+        ->with('message', 'Data berhasil disimpan');
     }
 
     /**
@@ -55,7 +57,8 @@ class PetugasController extends Controller
     public function show($id)
     {
         $data['data']=Petugas::find($id);
-        return view('admin.petugas.detailpetugas', $data);
+        return view('admin.petugas.detailpetugas')
+        ->with($data);
     }
 
     /**
@@ -67,9 +70,9 @@ class PetugasController extends Controller
     public function edit($id)
     {
         $data['data']=Petugas::find($id);
-        return view('admin.petugas.formubahpetugas', $data);
+        return view('admin.petugas.formubah_petugas')
+        ->with($data);
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -95,6 +98,7 @@ class PetugasController extends Controller
     public function destroy($id)
     {
         Petugas::find($id)->delete();
-        return redirect()->route('petugas.index')->with('message', 'Data berhasil di hapus');
+        return redirect()->route('petugas.index')
+        ->with('message', 'Data berhasil dihapus');
     }
 }

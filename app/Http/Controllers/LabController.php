@@ -96,6 +96,7 @@ class LabController extends Controller
     public function destroy($id)
     {
         Lab::find($id)->delete();
-        return redirect()->route('lab.index')->with('message', 'Data berhasil dihapus');
+        return redirect()->route('lab.index')
+        ->with('message', 'Data berhasil dihapus');
     }
 }

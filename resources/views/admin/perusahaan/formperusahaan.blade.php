@@ -36,7 +36,8 @@
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-3 col-form-label">Nama Perusahaan</label>
                                         <div class="col-9">
-                                            <input class="form-control" name="nama_perusahaan" type="text" value="Nama Perusahaan" id="example-text-input">
+                                            <input class="form-control" name="user_id" type="hidden" value="{{ Auth::user()->id }}" id="example-text-input">
+                                            <input class="form-control" name="nama_perusahaan" type="text" value="" focus id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -55,7 +56,7 @@
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-3 col-form-label">Nama Penanggung jawab</label>
                                         <div class="col-9">
-                                            <input class="form-control" name="nama_penanggungjawab" type="text" value="Nama Penanggung Jawab" id="example-text-input">
+                                            <input class="form-control" name="nama_penanggungjawab" type="text" value="" id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -67,7 +68,7 @@
                                     <div class="form-group">
                                     <div class="offset-sm-3 col-sm-9">
                                         <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Simpan</button>
-                                        <button type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</button>
+                                        <a href="{{ route('perusahaan.index') }}" type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</a>
                                     </div>
                                 </div>
                                 </form>

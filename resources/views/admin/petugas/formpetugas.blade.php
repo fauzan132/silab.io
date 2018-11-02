@@ -36,6 +36,7 @@
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-2 col-form-label">Nama Petugas</label>
                                         <div class="col-10">
+                                            <input class="form-control" name="user_id" type="hidden" value="{{ Auth::user()->id }}" id="example-text-input">
                                             <input class="form-control" name="nama_petugas" type="text" value="" id="example-text-input">
                                         </div>
                                     </div>

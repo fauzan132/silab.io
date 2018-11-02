@@ -30,32 +30,26 @@
                                         <thead>
                                             <tr>
                                                 <th>ID Barang</th>
+                                                <th>ID Lab</th>
                                                 <th>Nama Barang</th>
                                                 <th>Harga Barang</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($data as $row => $value)
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
+                                                <td>{{ $value->id_barang }}</td>
+                                                <td>{{ $value->id_lab }}</td>
+                                                <td>{{ $value->nama_barang }}</td>
+                                                <td>{{ $value->harga }}</td>
                                                 <td>
                                                 <button type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</button>
                                                 <button type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</button>
                                                 <button type="button" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
-                                                </td>
-                                            </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </div>

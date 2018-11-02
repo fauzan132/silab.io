@@ -16,7 +16,7 @@ class BarangController extends Controller
     public function index()
     {
         //
-        $data['data']=Lab::get(); 
+        $data['data']=Barang::get(); 
         return view('admin.barang.listbarang')->with($data);
     }
 

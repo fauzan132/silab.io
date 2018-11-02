@@ -26,6 +26,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data Barang</h4>
                                 <div class="table-responsive m-t-40">
+                                <button type="button" class="btn btn-sm waves-effect waves-light btn-success"><i class="ti-plus"></i> Tambah Data</button>
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pengujian;
 use Illuminate\Http\Request;
 
 class PengujianController extends Controller
@@ -13,8 +14,9 @@ class PengujianController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.pengujian.listpengujian');
+        $data['data']=Pengujian::get();
+        return view('admin.pengujian.listpengujian')
+        ->with($data);
     }
 
     /**
@@ -36,7 +38,17 @@ class PengujianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Petugas::create([
+            //'user_id' => $request->user_id,
+            'id_petugas_admin' => $request->id_petugas_admin,
+            'id_petugas_lab' => $request->id_petugas_lab,
+            'total_harga' => $request->total_harga,
+            'bukti_pembayaran' => $request->bukti_pembayaran,
+            'status_pengujian' => $request->status_pengujian,
+            'hasil_pengujian' => $request->hasil_pengujian
+                ]);
+        return redirect()->route('pengujian.index')
+        ->with('message', 'Data berhasil disimpan');
     }
 
     /**
@@ -47,7 +59,9 @@ class PengujianController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['data']=Pengujian::find($id);
+        return view('admin.pengujian.detailpengujian')
+        ->with($data);
     }
 
     /**
@@ -58,7 +72,9 @@ class PengujianController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['data']=Pengujian::find($id);
+        return view('admin.pengujian.formubah_pengujian')
+        ->with($data);
     }
 
     /**
@@ -70,7 +86,13 @@ class PengujianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Pengujian::find($id)->update(['id_petugas_admin'=>$request->id_petugas_admin]);
+        Pengujian::find($id)->update(['id_petugas_lab'=>$request->id_petugas_lab]);
+        Pengujian::find($id)->update(['total_harga'=>$request->total_harga]);
+        Pengujian::find($id)->update(['bukti_pembayaran'=>$request->bukti_pembayaran]);
+        Pengujian::find($id)->update(['status_pengujian'=>$request->status_pengujian]);
+        Pengujian::find($id)->update(['hasil_pengujian'=>$request->hasil_pengujian]);
+        return redirect()->route('pengujian.index');
     }
 
     /**
@@ -81,11 +103,10 @@ class PengujianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pengujian::find($id)->delete();
+        return redirect()->route('pengujian.index')
+        ->with('message', 'Data berhasil dihapus');
     }
 
-    public function transaksi()
-    {
-        //
-    }
+    
 }

@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item">
                                 <a href="javascript:void(0)">Home</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Data Perusahaan</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('perusahaan.index')}}">Data Perusahaan</a></li>
                             <li class="breadcrumb-item active">Tambah Data Perusahaan</li>
                         </ol>
                     </div>

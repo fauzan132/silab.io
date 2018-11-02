@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-3 col-form-label">Nama Perusahaan Lab</label>
+                                        <label for="example-text-input" class="col-3 col-form-label">Nama Perusahaan </label>
                                         <div class="col-9">
                                             <input class="form-control" name="id_perusahaan" type="text" value="Nama Perusahaan" id="example-text-input">
                                         </div>

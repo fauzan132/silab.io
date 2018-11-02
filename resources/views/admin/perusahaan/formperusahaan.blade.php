@@ -32,7 +32,8 @@
                                     </div> 
                                 </div>
                                
-                                <form class="form">
+                                <form method="POST" action="{{ route('perusahaan.store') }}" enctype="multipart/form-data" class="form">
+                                {{ csrf_field() }}
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-3 col-form-label">Nama Perusahaan</label>
                                         <div class="col-9">

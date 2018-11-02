@@ -45,9 +45,14 @@
                                                 <td>{{ $value->nama_barang }}</td>
                                                 <td>{{ $value->harga }}</td>
                                                 <td>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</button>
-                                                <button type="button" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
+                                                <form action="{{ route('barang.destroy', $value->id_barang) }}" method="post">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <a href="{{ route('barang.show', $value->id_barang) }}" type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
+                                                    <a href="{{ route('barang.edit', $value->id_barang) }}" type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
+                                                    <button type="submit" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
+                                                </form>
+                                                
                                                 </td>
                                             </tr>
                                         @endforeach

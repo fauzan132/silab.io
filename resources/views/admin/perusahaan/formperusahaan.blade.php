@@ -45,18 +45,7 @@
                                         <textarea class="form-control" rows="3" name="alamat_perusahaan"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-email-input" class="col-3 col-form-label">Email</label>
-                                        <div class="col-9">
-                                            <input class="form-control" type="email" name="email" placeholder="admin@example.com" id="example-email-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-password-input" class="col-3 col-form-label">Password</label>
-                                        <div class="col-9">
-                                            <input class="form-control" type="password" name="password" placeholder="***" id="example-password-input">
-                                        </div>
-                                    </div>
+                                  
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">No Telp</label>
                                         <div class="col-9">
@@ -72,7 +61,7 @@
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">No Telp Penangung Jawab</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="tel" name="notelp_penanggungjawab" placeholder="contoh:0893728XXXX" id="example-tel-input">
+                                            <input class="form-control" type="number" name="notelp_penanggungjawab" placeholder="contoh:0893728XXXX" id="example-tel-input">
                                         </div>
                                     </div>
                                     <div class="form-group">

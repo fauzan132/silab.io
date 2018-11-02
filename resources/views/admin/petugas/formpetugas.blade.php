@@ -28,103 +28,37 @@
                                 <div class="d-flex no-block align-self-center">
                                     <div>
                                         <h4 class="card-title">Form Tambah Petugas</h4>
-                                        <h6 class="card-subtitle"> All bootstrap element classies </h6>
                                     </div> 
                                 </div>
                                
                                 <form class="form">
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-2 col-form-label">Text</label>
+                                        <label for="example-text-input" class="col-2 col-form-label">Nama Petugas</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+                                            <input class="form-control" name="nama_petugas" type="text" value="Nama Petugas" id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="example-search-input" class="col-2 col-form-label">Search</label>
+                                        <label for="example-search-input" class="col-2 col-form-label">Alamat</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
+                                        <textarea class="form-control" rows="3" name="alamat_petugas"></textarea>
+                                        </div>
+                                    </div>
+                                   
+                                  
+                                    <div class="form-group row">
+                                        <label for="example-tel-input" class="col-2 col-form-label">No Telp</label>
+                                        <div class="col-10">
+                                            <input class="form-control" type="number" name="notelp_petugas" placeholder="contoh:0893728XXXX" id="example-tel-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="example-email-input" class="col-2 col-form-label">Email</label>
+                                        <label for="example-month-input" class="col-2 col-form-label">Status Petugas</label>
                                         <div class="col-10">
-                                            <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-url-input" class="col-2 col-form-label">URL</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-password-input" class="col-2 col-form-label">Password</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="password" value="hunter2" id="example-password-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-number-input" class="col-2 col-form-label">Number</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="number" value="42" id="example-number-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-month-input" class="col-2 col-form-label">Month</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="month" value="2011-08" id="example-month-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-week-input" class="col-2 col-form-label">Week</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="week" value="2011-W33" id="example-week-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Time</label>
-                                        <div class="col-10">
-                                            <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-time-input" class="col-2 col-form-label">Time</label>
-                                        <div class="col-10">
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-month-input" class="col-2 col-form-label">Select</label>
-                                        <div class="col-10">
-                                            <select class="custom-select col-12" id="inlineFormCustomSelect">
-                                                <option selected="">Choose...</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <select class="custom-select col-12" id="inlineFormCustomSelect" name="status_petugas">
+                                                <option selected="">Pilih...</option>
+                                                <option value="Petugas Administrasi">Petugas Administrasi</option>
+                                                <option value="Petugas Lab">Petugas Lab</option>
                                             </select>
                                         </div>
                                     </div>

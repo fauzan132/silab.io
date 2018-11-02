@@ -14,7 +14,7 @@ class PerusahaanController extends Controller
      */
     public function index()
     {
-        $data['data']=Petugas::get();
+        $data['data']=Perusahaan::get();
         return view('admin.perusahaan.listperusahaan')
         ->with($data);
     }

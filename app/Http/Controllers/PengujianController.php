@@ -14,6 +14,7 @@ class PengujianController extends Controller
     public function index()
     {
         //
+        return view('admin.pengujian.listpengujian');
     }
 
     /**
@@ -24,6 +25,7 @@ class PengujianController extends Controller
     public function create()
     {
         //
+        return view('admin.pengujian.formpengujian');
     }
 
     /**

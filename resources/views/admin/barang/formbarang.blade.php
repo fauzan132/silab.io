@@ -10,7 +10,7 @@
                             <li class="breadcrumb-item">
                                 <a href="javascript:void(0)">Home</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Data Barang</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('barang.index')}}">Data Barang</a></li>
                             <li class="breadcrumb-item active">Tambah Data Barang</li>
                         </ol>
                     </div>

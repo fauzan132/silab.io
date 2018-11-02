@@ -166,13 +166,13 @@
                             <a class="waves-effect waves-dark" href="{{ url('/')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                         </li>
                         <li class="">
-                        <a class="waves-effect waves-dark" href="{{ route('barang.index')}}" aria-expanded="false"><i class="mdi mdi-water"></i><span class="hide-menu">Barang </span></a>
+                        <a class="waves-effect waves-dark" href="{{ route('barang.index')}}" aria-expanded="false"><i class="mdi mdi-package-variant-closed"></i><span class="hide-menu">Barang </span></a>
                         </li>
                         <li class="">
                             <a class="waves-effect waves-dark" href="{{ route('petugas.index')}}" aria-expanded="false"><i class="mdi mdi-account"></i><span class="hide-menu">Petugas </span></a>
                         </li>
                         <li class="">
-                            <a class="waves-effect waves-dark" href="{{ route('perusahaan.index')}}" aria-expanded="false"><i class="mdi mdi-bank"></i><span class="hide-menu">Perusahaan </span></a>
+                            <a class="waves-effect waves-dark" href="{{ route('perusahaan.index')}}" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span class="hide-menu">Perusahaan </span></a>
                         </li>
                         <li class="">
                             <a class="waves-effect waves-dark" href="{{ route('lab.index')}}" aria-expanded="false"><i class="mdi mdi-thermometer"></i><span class="hide-menu">Laboratorium </span></a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Lab;
 use Illuminate\Http\Request;
 
 class LabController extends Controller
@@ -36,7 +37,12 @@ class LabController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Lab::create([
+            'nama_lab' => $request->nama_lab,
+            'tempat_lab' => $request->tempat_lab,
+            'keterangan' => $request->keterangan
+                ]);
+        return redirect()->route('lab.index')->with('message', 'Data berhasil disimpan');
     }
 
     /**
@@ -47,7 +53,9 @@ class LabController extends Controller
      */
     public function show($id)
     {
-        //
+        $data['data']=Lab::find($id);
+        return view('admin.lab.listlab')
+        ->with($data);
     }
 
     /**
@@ -58,7 +66,9 @@ class LabController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data['data']=Lab::get(); 
+        return view('admin.lab.formubah_lab')
+        ->with($data);
     }
 
     /**
@@ -70,7 +80,10 @@ class LabController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Lab::find($id)->update(['nama_lab'=>$request->nama_lab]);
+        Lab::find($id)->update(['tempat_lab'=>$request->tempat_lab]);
+        Lab::find($id)->update(['keterangan'=>$request->keterangan]);
+        return redirect()->route('lab.index');
     }
 
     /**
@@ -81,6 +94,7 @@ class LabController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Lab::find($id)->delete();
+        return redirect()->route('lab.index')->with('message', 'Data berhasil dihapus');
     }
 }

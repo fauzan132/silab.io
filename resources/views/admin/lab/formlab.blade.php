@@ -31,11 +31,18 @@
                                     </div> 
                                 </div>
                                
-                                <form class="form">
+                                <form method="POST" action="{{ route('lab.store') }}" enctype="multipart/form-data" class="form">
+                                {{ csrf_field() }}
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-2 col-form-label">Nama Laboratorium</label>
                                         <div class="col-10">
-                                            <input class="form-control" name="nama_lab" type="text" value="Nama Laboratorium" id="example-text-input">
+                                            <input class="form-control" name="nama_lab" type="text" value="" id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-t-40 row">
+                                        <label for="example-text-input" class="col-2 col-form-label">Tempat Laboratorium</label>
+                                        <div class="col-10">
+                                            <input class="form-control" name="tempat_lab" type="text" value="" id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -47,7 +54,7 @@
                                     <div class="form-group">
                                     <div class="offset-sm-2 col-sm-10">
                                         <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Simpan</button>
-                                        <button type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</button>
+                                        <a href="{{ route('lab.index') }}" type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</a>
                                     </div>
                                 </div>
                                 </form>

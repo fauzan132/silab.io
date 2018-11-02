@@ -41,7 +41,7 @@ class PetugasController extends Controller
             'nama_petugas' => $request->nama_petugas,
             'alamat_petugas'=>$request->alamat_petugas,
             'notelp_petugas' => $request->notelp_petugas,
-
+            'status_petugas' => $request->status_petugas
                 ]);
         return redirect()->route('petugas.index')->with('message', 'Data berhasil diinput');
     }
@@ -82,6 +82,7 @@ class PetugasController extends Controller
         Petugas::find($id)->update(['nama_petugas'=>$request->nama_petugas]);
         Petugas::find($id)->update(['alamat_petugas'=>$request->alamat_petugas]);
         Petugas::find($id)->update(['notelp_petugas'=>$request->notelp_petugas]);
+        Petugas::find($id)->update(['status_petugas'=>$request->status_petugas]);
         return redirect()->route('petugas.index');
     }
 

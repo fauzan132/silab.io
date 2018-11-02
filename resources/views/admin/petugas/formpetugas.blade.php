@@ -31,11 +31,12 @@
                                     </div> 
                                 </div>
                                
-                                <form class="form">
+                                <form method="POST" action="{{ route('petugas.store') }}" enctype="multipart/form-data" class="form">
+                                {{ csrf_field() }}
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-2 col-form-label">Nama Petugas</label>
                                         <div class="col-10">
-                                            <input class="form-control" name="nama_petugas" type="text" value="Nama Petugas" id="example-text-input">
+                                            <input class="form-control" name="nama_petugas" type="text" value="" id="example-text-input">
                                         </div>
                                     </div>
                                     <div class="form-group row">

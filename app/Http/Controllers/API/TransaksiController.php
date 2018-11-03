@@ -14,19 +14,17 @@ use Validator;
 
 class TransaksiController extends Controller
 { 
+    public $successStatus = 200;
+
     public function index()
     {
         
         $data = Pengujian::all();
-
         if(count($data) > 0){ //mengecek apakah data kosong atau tidak
-            $res['message'] = "Success!";
-            $res['values'] = $data;
-            return response($res);
+            return response()->json(['success'=>$data], $this->successStatus);
         }
         else{
-            $res['message'] = "Empty!";
-            return response($res);
+            return response()->json(['success'=>'Data Kosong'], $this->successStatus);
         }
 
     //     $id='PG00000004';
@@ -47,9 +45,7 @@ class TransaksiController extends Controller
         $data->id_barang = $id_barang;
 
         if($data->save()){
-            $res['message'] = "Success!";
-            $res['value'] = "$data";
-            return response($res);
+            return response()->json(['success'=>$data], $this->successStatus);
         }
     }
 
@@ -61,7 +57,7 @@ class TransaksiController extends Controller
                     $file->move('buktibayar',$name);
                     $berkas=$name;
                 }else{
-                    return redirect()->back()->with('message', 'File yang di upload harus berektensi .png , .jpg dan .jpeg');
+                    return response()->json(['error'=>'File tidak didukung'], $this->successStatus);
                 }
         }
         $id_petugas_admin = $request->input('id_petugas_admin');
@@ -71,12 +67,9 @@ class TransaksiController extends Controller
         $data->bukti_pembayaran = $bukti_pembayaran;
 
         if($data->save()){
-            $res['message'] = "Success!";
-            $res['value'] = "$data";
-            return response($res);
+            return response()->json(['success'=>$data], $this->successStatus);
         }else{
-            $res['message'] = "Failed!";
-            return response($res);
+            return response()->json(['error'=>'Error'], $this->successStatus);
         }
     }
 
@@ -90,12 +83,9 @@ class TransaksiController extends Controller
         $data->status_pengujian = "Selesai";
 
         if($data->save()){
-            $res['message'] = "Success!";
-            $res['value'] = "$data";
-            return response($res);
+            return response()->json(['success'=>$data], $this->successStatus);
         }else{
-            $res['message'] = "Failed!";
-            return response($res);
+            return response()->json(['error'=>'Error'], $this->successStatus);
         }
     }
 
@@ -103,13 +93,10 @@ class TransaksiController extends Controller
     {
         $data = Pengujian::find($id);
         if(count($data) > 0){ //mengecek apakah data kosong atau tidak
-            $res['message'] = "Success!";
-            $res['values'] = $data;
-            return response($res);
+            return response()->json(['success'=>$data], $this->successStatus);
         }
         else{
-            $res['message'] = "Failed!";
-            return response($res);
+            return response()->json(['error'=>'Error'], $this->successStatus);
         }
     }
 
@@ -117,13 +104,10 @@ class TransaksiController extends Controller
     {
         $data = Pengujian::where('id_pengujian',$id)->first();
         if($data->delete()){
-            $res['message'] = "Success!";
-            $res['value'] = "$data";
-            return response($res);
+            return response()->json(['success'=>'Berhasil dihapus'], $this->successStatus);
         }
         else{
-            $res['message'] = "Failed!";
-            return response($res);
+            return response()->json(['error'=>'Error'], $this->successStatus);
     }
 }
 

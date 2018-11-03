@@ -14,4 +14,12 @@ class Perusahaan extends Model
        'user_id','nama_perusahaan','alamat_perusahaan','notelp_perusahaan','nama_penanggungjawab','notelp_penanggungjawab',
        'created_at','updated_at'
      ];
+
+    //  public static function getIDPerusahaan($id){
+    //   $users = DB::table('users')
+    //         ->join('perusahaan', 'users.id', '=', 'perusahaan.user_id')
+    //         ->select('perusahaan.id_perusahaan')
+    //         ->where('users.id', $id)
+    //         ->value('id_perusahaan');
+    //  }
 }

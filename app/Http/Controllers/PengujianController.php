@@ -107,6 +107,10 @@ class PengujianController extends Controller
         return redirect()->route('pengujian.index')
         ->with('message', 'Data berhasil dihapus');
     }
-
+    public function panggilujipetugas($id)
+    {
+        Pengujian::find($id);
+        return view('petugas.pengujian.formpengujian');
+    }
     
 }

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Pengujian extends Model
 {
@@ -21,5 +22,16 @@ class Pengujian extends Model
        ->join('laboratorium', 'barang.id_lab','=','laboratorium.id_lab')
        ->select('pengujian.*', 'barang.nama_barang','laboratorium.nama_lab')
        ->get();
+    }
+
+    public static function getdatapetugas($data){
+      $data=DB::table('pengujian')
+      ->join('petugas','pengujian.id_petugas_lab','=','petugas.id_petugas')
+      ->join('perusahaan','pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
+      ->join('barang','pengujian.id_barang','=','barang.id_barang')
+      ->where('pengujian.id_pengujian',$data)
+      ->select('pengujian.*','petugas.nama_petugas','perusahaan.nama_perusahaan','barang.nama_barang')
+      ->first();
+      return $data;
     }
 }

@@ -49,7 +49,7 @@ Route::resource('lab','LabController');
 //PENGUJIAN
 Route::resource('pengujian','PengujianController');
 Route::get('/detailpengujian','PengujianController@transaksi');
-
+Route::get('/formpengujianlab/{id}','PengujianController@panggilujipetugas')->name("pengujian.formpengujianlab");
 
 //BARANG
 Route::resource('barang','BarangController');

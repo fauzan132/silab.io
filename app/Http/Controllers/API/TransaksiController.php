@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Barang;
 use App\Pengujian;
 use App\Perusahaan;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class TransaksiController extends Controller
     public function index()
     {
         
-        $data = Pengujian::all();
+        $data = Pengujian::getBarang();
         if(count($data) > 0){ //mengecek apakah data kosong atau tidak
             return response()->json(['success'=>$data], $this->successStatus);
         }
@@ -108,7 +109,8 @@ class TransaksiController extends Controller
         }
         else{
             return response()->json(['error'=>'Error'], $this->successStatus);
+        }
     }
-}
 
 }
+

@@ -13,4 +13,11 @@ class Petugas extends Model
      protected $fillable = [
        'user_id','nama_petugas','alamat_petugas','notelp_petugas','created_at','updated_at'
      ];
+
+     public static function getUsers(){
+       return $data = User::select('*')
+        ->join('petugas', 'users.id','=','petugas.user_id')
+        ->get();
+     }
+
 }

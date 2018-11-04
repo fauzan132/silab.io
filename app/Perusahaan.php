@@ -15,11 +15,9 @@ class Perusahaan extends Model
        'created_at','updated_at'
      ];
 
-    //  public static function getIDPerusahaan($id){
-    //   $users = DB::table('users')
-    //         ->join('perusahaan', 'users.id', '=', 'perusahaan.user_id')
-    //         ->select('perusahaan.id_perusahaan')
-    //         ->where('users.id', $id)
-    //         ->value('id_perusahaan');
-    //  }
+     public static function getUsers(){
+      return $data = User::select('*')
+       ->join('perusahaan', 'users.id','=','perusahaan.user_id')
+       ->get();
+    }
 }

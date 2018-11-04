@@ -24,6 +24,12 @@ Route::post('pengujian/buktibayar/{id}', 'API\TransaksiController@addBuktiBayar'
 Route::post('pengujian/hasilpengujian/{id}', 'API\TransaksiController@hasilPengujian');
 Route::get('pengujian/lihat/', 'API\TransaksiController@index');
 Route::post('pengujian/hapus/{id}', 'API\TransaksiController@destroy');
+//GET DATA
+Route::get('barang/lihat/', 'API\GetDataController@getBarang');
+Route::get('perusahaan/lihat/', 'API\GetDataController@getPerusahaan');
+Route::get('petugas/lihat/', 'API\GetDataController@getPetugas');
+Route::get('lab/lihat/', 'API\GetDataController@getLab');
+Route::get('user/lihat/', 'API\GetDataController@getUser');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

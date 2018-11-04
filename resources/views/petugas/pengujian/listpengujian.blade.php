@@ -31,7 +31,6 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Petugas</th>
                                                 <th>Nama Petugas Lab</th>
                                                 <th>Nama Perusahaan</th>
                                                 <th>Total Harga</th>
@@ -51,20 +50,41 @@
                                         ?>
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $value->id_petugas }}</td>
-                                                <td>{{ $value->id_petugas_lab }}</td>
-                                                <td>{{ $value->nama_perusahaan }}</td>
-                                                <td>{{ $value->total_harga }}</td>
-                                                <td>{{ $value->bukti_pembayaran }}</td>
-                                                <td>{{ $value->status_pengujian }}</td>
-                                                <td>{{ $value->hasil_pengujian }}</td>
+                                                @if($value->id_petugas_lab==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->id_petugas_lab!=null)
+                                                    <td>{{ $value->id_petugas_lab }}</td>
+                                                @endif
+                                                @if($value->id_nama_perusahaan==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->id_nama_perusahaan!=null)
+                                                    <td>{{ $value->nama_perusahaan }}</td>
+                                                @endif
+                                                @if($value->total_harga==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->total_harga!=null)          
+                                                    <td>{{ $value->total_harga }}</td>
+                                                @endif
+                                                @if($value->bukti_pembayaran==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->bukti_pembayaran!=null)
+                                                    <td>{{ $value->bukti_pembayaran }}</td>
+                                                @endif 
+                                                @if($value->status_pengujian==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->status_pengujian!=null)
+                                                    <td>{{ $value->status_pengujian }}</td>
+                                                @endif 
+                                                @if($value->hasil_pengujian==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->hasil_pengujian!=null)
+                                                    <td>{{ $value->hasil_pengujian }}</td>
+                                                @endif 
                                                 <td>
                                                 <form action="{{ route('pengujian.destroy', $value->id_pengujian) }}" method="post">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
-                                                    <a href="{{ route('pengujian.edit', $value->id_pengujian) }}" type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
-                                                    <button type="submit" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
+                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Ubah Status</a>
                                                 </form>
                                                 </td>
                                             </tr>

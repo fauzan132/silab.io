@@ -22,6 +22,8 @@ Route::post('pengujian/simpan/', 'API\TransaksiController@store');
 Route::get('pengujian/detail/{id}', 'API\TransaksiController@show');
 Route::post('pengujian/buktibayar/{id}', 'API\TransaksiController@addBuktiBayar')->name('pengujian.buktibayar');
 Route::post('pengujian/hasilpengujian/{id}', 'API\TransaksiController@hasilPengujian');
+Route::post('pengujian/verifikasiBayar/{id}', 'API\TransaksiController@verifikasiBayar');
+Route::post('pengujian/verifikasiBarang/{id}', 'API\TransaksiController@verifikasiBarang');
 Route::get('pengujian/lihat/', 'API\TransaksiController@index');
 Route::post('pengujian/hapus/{id}', 'API\TransaksiController@destroy');
 //GET DATA

@@ -62,8 +62,8 @@
                                                 <form action="{{ route('pengujian.destroy', $value->id_pengujian) }}" method="post">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" type="button" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
-                                                    <a href="{{ route('pengujian.edit', $value->id_pengujian) }}" type="button" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
+                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
+                                                    <a href="{{ route('pengujian.edit', $value->id_pengujian) }}"  class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
                                                     <button type="submit" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
                                                 </form>
                                                 </td>

@@ -27,61 +27,41 @@
                         <div class="card-body">
                                 <div class="d-flex no-block align-self-center">
                                     <div>
-                                        <h4 class="card-title">Form Tambah Pengujian</h4>
+                                        <h4 class="card-title">Form Status Pengujian</h4>
                                     </div> 
                                 </div>
                                
-                                <form class="form">
+                                <form method="POST" action="{{ route('pengujian.verifikasibayar') }}" enctype="multipart/form-data" class="form">
+                                {{ csrf_field() }}
+                                <input class="form-control" name="id_pengujian" type="hidden" value="{{$data->id_pengujian}}" id="example-text-input" readonly>
                                     <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-3 col-form-label">Nama Petugas</label>
+                                        <label for="example-text-input" class="col-3 col-form-label">Nama Perusahaan</label>
                                         <div class="col-9">
-                                            <input class="form-control" name="id_petugas_admin" type="text" value="Nama Petugas" id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-3 col-form-label">Nama Petugas Lab</label>
-                                        <div class="col-9">
-                                            <input class="form-control" name="id_petugas_lab" type="text" value="Nama Petugas Lab" id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-3 col-form-label">Nama Perusahaan </label>
-                                        <div class="col-9">
-                                            <input class="form-control" name="id_perusahaan" type="text" value="Nama Perusahaan" id="example-text-input">
+                                            <input class="form-control" name="id_perusahaan" type="text" value="{{$data->nama_perusahaan }}" id="example-text-input" disabled>
                                         </div>
                                     </div>                                  
                                     <div class="form-group row">
-                                        <label for="example-tel-input" class="col-3 col-form-label">Total Harga</label>
+                                        <label for="example-tel-input" class="col-3 col-form-label">Nama Barang</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="number" name="total_harga" id="example-tel-input">
+                                            <input class="form-control" type="text" name="id_barang" id="example-tel-input" value="{{$data->nama_barang }}" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-tel-input" class="col-3 col-form-label">Jumlah Barang</label>
+                                        <div class="col-9">
+                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->jumlah_barang }}" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Bukti Pembayaran</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="file" name="bukti_pembayaran" id="example-tel-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-month-input" class="col-3 col-form-label">Status Pengujian</label>
-                                        <div class="col-9">
-                                            <select class="custom-select col-12" id="inlineFormCustomSelect" name="status_petugas">
-                                                <option selected="">Pilih...</option>
-                                                <option value="Proses">Proses</option>
-                                                <option value="Selesai">Selesai</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-tel-input" class="col-3 col-form-label">Hasil Pengujian</label>
-                                        <div class="col-9">
-                                            <input class="form-control" type="file" name="hasil_pengujian" id="example-tel-input">
+                                           <img class="img-responsive buktibayar" disable width="400px" height="200px" src="{{ asset('buktibayar/'.$data->bukti_pembayaran ) }}" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                     <div class="offset-sm-3 col-sm-9">
-                                        <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Simpan</button>
-                                        <button type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</button>
+                                        <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Verifikasi</button>
+                                        <a href="{{ route('pengujian.liststatusadmin') }}" class="btn btn-default waves-effect waves-light m-t-10">Kembali</a>
                                     </div>
                                 </div>
                                 </form>
@@ -95,4 +75,3 @@
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
 @endsection
-               

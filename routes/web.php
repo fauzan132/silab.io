@@ -49,6 +49,9 @@ Route::resource('lab','LabController');
 //PENGUJIAN
 Route::resource('pengujian','PengujianController');
 Route::get('/detailpengujian','PengujianController@transaksi');
+Route::get('/statusadmin/{id}','PengujianController@pengujianadmin')->name('pengujian.formstatusadmin');
+Route::get('/liststatusadmin','PengujianController@listpengujianadmin')->name('pengujian.liststatusadmin');
+Route::post('/verifikasibayar','PengujianController@verifikasibayar')->name('pengujian.verifikasibayar');
 Route::get('/formpengujianlab/{id}','PengujianController@panggilujipetugas')->name("pengujian.formpengujianlab");
 
 //BARANG

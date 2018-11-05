@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Pengujian;
+use DateTime;
+use Auth;
 use Illuminate\Http\Request;
 
 class PengujianController extends Controller
@@ -111,6 +113,34 @@ class PengujianController extends Controller
     {
         Pengujian::find($id);
         return view('petugas.pengujian.formpengujian');
+    }
+
+    public function listpengujianadmin()
+    {
+        $data['data']=Pengujian::get();
+        return view('admin.pengujian.listpengujian')
+        ->with($data);
+    }
+
+    public function pengujianadmin($id)
+    {
+        $data['data']=Pengujian::getdatapetugas2($id);
+        return view('admin.pengujian.formpengujian')
+        ->with($data);
+        print_r($data);
+    }
+
+    public function verifikasibayar(Request $request)
+    {
+        $id = $request->id_pengujian;
+        $id_petugas_admin = Pengujian::getIDAdmin(Auth::user()->id);
+        $tgl_verifikasi = new DateTime('Asia/Jakarta');
+        $data = Pengujian::where('id_pengujian',$id)->first();
+        $data->id_petugas_admin = $id_petugas_admin;
+        $data->tgl_verifikasi = $tgl_verifikasi;
+        $data->status_pengujian = "Sedang Proses";
+        $data->save();
+        return redirect()->route('pengujian.liststatusadmin');
     }
     
 }

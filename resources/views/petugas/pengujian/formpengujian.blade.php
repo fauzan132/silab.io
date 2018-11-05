@@ -57,19 +57,19 @@
                                             <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->jumlah_barang}}" disabled>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Bukti Pembayaran</label>
                                         <div class="col-9">
-                                           <img class="img-responsive buktibayar" src="{{ asset('dashboard_asset/images/background/socialbg.jpg') }}" />
+                                           <img class="img-responsive buktibayar" width="400px" height="200px" src="{{ asset('buktibayar/'.$data->bukti_pembayaran ) }}" />
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tanggal Barang Diterima</label>
                                         <div class="col-9">
                                         <?php $now = new DateTime($data->tgl_barang_diterima);
                                              $timestring = $now->format('Y-m-d');
                                         ?>
-                                            <input class="form-control" type="date" name="tgl_barang_diterima" id="example-tel-input" value="{{ $timestring }}">
+                                            <input class="form-control" type="date" name="tgl_barang_diterima" disabled id="example-tel-input" value="{{ $timestring }}">
                                         </div>
                                     </div>
                                                                        

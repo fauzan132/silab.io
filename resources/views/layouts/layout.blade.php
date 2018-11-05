@@ -177,9 +177,15 @@
                         <li class="">
                             <a class="waves-effect waves-dark" href="{{ route('lab.index')}}" aria-expanded="false"><i class="mdi mdi-thermometer"></i><span class="hide-menu">Laboratorium </span></a>
                         </li>
+                        @if(Auth::user()->level==0)
+                        <li class="">
+                            <a class="waves-effect waves-dark" href="{{ route('pengujian.liststatusadmin')}}" aria-expanded="false"><i class="mdi mdi-thermometer-lines"></i><span class="hide-menu">Pengujian </span></a>
+                        </li>
+                        @elseif(Auth::user()->level==1)
                         <li class="">
                             <a class="waves-effect waves-dark" href="{{ route('pengujian.index')}}" aria-expanded="false"><i class="mdi mdi-thermometer-lines"></i><span class="hide-menu">Pengujian </span></a>
                         </li>
+                        @endif
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

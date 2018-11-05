@@ -45,4 +45,23 @@ class Pengujian extends Model
       ->first();
       return $data;
     }
+
+    public static function getdatapetugas2($data){
+      $data=DB::table('pengujian')
+      ->join('perusahaan','pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
+      ->join('barang','pengujian.id_barang','=','barang.id_barang')
+      ->where('pengujian.id_pengujian',$data)
+      ->select('pengujian.*','perusahaan.nama_perusahaan','barang.nama_barang')
+      ->first();
+      return $data;
+    }
+
+    public static function getIDAdmin($data){
+      $data=DB::table('users')
+      ->join('petugas','users.id','=','petugas.user_id')
+      ->where('users.id',$data)
+      ->select('petugas.id_petugas')
+      ->value('petugas.id_petugas');
+      return $data;
+    }
 }

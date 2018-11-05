@@ -10,7 +10,7 @@
                             <li class="breadcrumb-item">
                                 <a href="javascript:void(0)">Home</a>
                             </li>
-                            <li class="breadcrumb-item active">Verifikasi Pembayaran Pengujian</li>
+                            <li class="breadcrumb-item active">Log Data Pengujian</li>
                         </ol>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Verifikasi Pembayaran Pengujian</h4>
+                                <h4 class="card-title">Log Data Pengujian</h4>
                                 <div class="table-responsive m-t-40">
                                <!--  <a href="{{ route('pengujian.create')}}"><button type="button" class="btn btn-sm waves-effect waves-light btn-success"><i class="ti-plus"></i> Tambah Data</button></a> -->
                                     <table id="myTable" class="table table-bordered table-striped nowrap">
@@ -34,9 +34,10 @@
                                                 <th>Nama Perusahaan</th>
                                                 <th>Nama Barang</th>
                                                 <th>Jumlah Barang</th>
-                                                <th>Total Harga</th>
-                                                <th>Tanggal Bayar</th>
+                                                <th>Tanggal Barang Diterima</th>
+                                                <th>Tanggal Barang Selesai Diuji</th>
                                                 <th>Status Pengujian</th>
+                                                <th>Hasil Pengujian</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -49,43 +50,16 @@
                                             $i++;
                                         ?>
                                             <tr>
-                                                <td>{{ $i }}</td>
-                                                @if($value->nama_perusahaan==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->nama_perusahaan!=null)
+                                                    <td>{{ $i }}</td>                                               
                                                     <td>{{ $value->nama_perusahaan }}</td>
-                                                @endif
-                                                <td>{{ $value->nama_barang }}</td>                                                
-                                                @if($value->jumlah_barang==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->jumlah_barang!=null)
-                                                    <td>{{ $value->jumlah_barang }}</td>
-                                                @endif
-                                                @if($value->total_harga==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->total_harga!=null)          
-                                                    <td>{{ $value->total_harga }}</td>
-                                                @endif
-                                                @if($value->tgl_bayar==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->tgl_bayar!=null)          
-                                                    <td>{{ $value->tgl_bayar }}</td>
-                                                @endif
-                                                @if($value->status_pengujian==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->status_pengujian!=null)
+                                                    <td>{{ $value->nama_barang }}</td>
+                                                    <td>{{ $value->jumlah_barang }}</td>           
+                                                    <td>{{ $value->tgl_barang_diterima }}</td>
+                                                    <td>{{ $value->tgl_barang_selesai }}</td>
                                                     <td>{{ $value->status_pengujian }}</td>
-                                                @endif 
+                                                    <td><a href="{{ asset('/hasilpengujian/'.$value->hasil_pengujian) }}" download>Download Hasil Uji</a></td>
                                                 <td>
-                                                <form action="{{ route('pengujian.destroy', $value->id_pengujian) }}" method="post">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    @if($value->tgl_verifikasi==null)
-                                                    <a href="{{ route('pengujian.formstatusadmin', $value->id_pengujian) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Verifikasi</a>
-                                                    @elseif($value->tgl_verifikasi!=null)
-                                                    <a href="#" disabled class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-eye"></i> Pembayaran Terverifikasi</a>
-                                                    @endif
-                                                </form>
+                                                    <a href="{{ route('pengujian.logdetail', $value->id_pengujian) }}" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-eye"></i> Lihat Detail Pengujian</a>
                                                 </td>
                                             </tr>
                                         @endforeach

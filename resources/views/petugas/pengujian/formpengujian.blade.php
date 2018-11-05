@@ -31,14 +31,9 @@
                                     </div> 
                                 </div>
                                
-                                <form method="POST" action="{{ route('pengujian.store') }}" enctype="multipart/form-data" class="form">
+                                <form method="POST" action="{{ route('pengujian.verifikasibarangdatang') }}" enctype="multipart/form-data" class="form">
                                 {{ csrf_field() }}
-                                    <div class="form-group m-t-40 row">
-                                        <label for="example-text-input" class="col-3 col-form-label">Nama Petugas Lab</label>
-                                        <div class="col-9">
-                                            <input class="form-control" name="id_petugas_lab" type="text" value="{{$data->nama_petugas}}" id="example-text-input" disabled>
-                                        </div>
-                                    </div>
+                                <input class="form-control" name="id_pengujian" type="hidden" value="{{$data->id_pengujian}}" id="example-text-input" readonly>
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-3 col-form-label">Nama Perusahaan</label>
                                         <div class="col-9">
@@ -57,45 +52,40 @@
                                             <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->jumlah_barang}}" disabled>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group row">
-                                        <label for="example-tel-input" class="col-3 col-form-label">Bukti Pembayaran</label>
-                                        <div class="col-9">
-                                           <img class="img-responsive buktibayar" width="400px" height="200px" src="{{ asset('buktibayar/'.$data->bukti_pembayaran ) }}" />
-                                        </div>
-                                    </div> -->
+                                    @if($data->tgl_barang_diterima!=null)
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tanggal Barang Diterima</label>
                                         <div class="col-9">
                                         <?php $now = new DateTime($data->tgl_barang_diterima);
                                              $timestring = $now->format('Y-m-d');
                                         ?>
-                                            <input class="form-control" type="date" name="tgl_barang_diterima" disabled id="example-tel-input" value="{{ $timestring }}">
+                                            <input class="form-control" type="date" name="tgl_barang_diterima"  readonly id="example-tel-input" value="{{ $timestring }}">
                                         </div>
                                     </div>
-                                                                       
-                                    @if($data->tgl_barang_selesai!=null)
-                                     <div class="form-group row">
-                                        <label for="example-tel-input" class="col-3 col-form-label">Tanggal Barang Selesai Diuji</label>
-                                        <div class="col-9">
-                                        <?php $now = new DateTime($data->tgl_barang_selesai);
-                                             $timestring = $now->format('Y-m-d');
-                                        ?>
-                                            <input class="form-control" type="date" name="tgl_barang_selesai" id="example-tel-input" value="{{ $timestring }}">
-                                        </div>
-                                    </div>
-                                    @endif
+                                    @endif                             
+                                    @if($data->tgl_barang_diterima!=null)
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Hasil Pengujian</label>
                                         <div class="col-9">
                                             <input class="form-control" type="file" value="{{ asset('hasilpengujian/'.$data->hasil_pengujian) }}" name="hasil_pengujian" id="example-tel-input">
                                         </div>
                                     </div>
+                                    @endif
+                                    @if($data->tgl_barang_diterima==null)
                                     <div class="form-group">
-                                    <div class="offset-sm-3 col-sm-9">
-                                        <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Simpan</button>
-                                        <button type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</button>
+                                        <div class="offset-sm-3 col-sm-9">
+                                            <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Verifikasi Barang Datang</button>
+                                            <a href="{{ route('pengujian.index') }}" type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</a>
+                                        </div>
                                     </div>
-                                </div>
+                                    @elseif($data->tgl_barang_diterima!=null)
+                                    <div class="form-group">
+                                        <div class="offset-sm-3 col-sm-9">
+                                            <button type="submit" class="btn btn-info waves-effect waves-light m-t-10">Verifikasi Hasil Uji</button>
+                                            <a href="{{ route('pengujian.index') }}" type="submit" class="btn btn-default waves-effect waves-light m-t-10">Batal</a>
+                                        </div>
+                                    </div>
+                                    @endif
                                 </form>
                             </div>
                         </div>

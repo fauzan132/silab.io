@@ -66,33 +66,35 @@
                                                 @elseif($value->jumlah_barang!=null)
                                                     <td>{{ $value->jumlah_barang }}</td>   
                                                 @endif     
-                                                @if($value->tanggal_barang_diterima==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->tanggal_barang_diterima!=null)          
-                                                    <td>{{ $value->tanggal_barang_diterima }}</td>
+                                                @if($value->tgl_barang_diterima==null)
+                                                    <td>Pengujian belum ditangani</td>
+                                                @elseif($value->tgl_barang_diterima!=null)          
+                                                    <td>{{ $value->tgl_barang_diterima }}</td>
                                                 @endif
-                                                @if($value->tanggal_barang_selesai==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->tanggal_barang_selesai!=null)
-                                                    <td>{{ $value->tanggal_barang_selesai }}</td>
+                                                @if($value->tgl_barang_selesai==null)
+                                                    <td>Pengujian belum ditangani</td>
+                                                @elseif($value->tgl_barang_selesai!=null)
+                                                    <td>{{ $value->tgl_barang_selesai }}</td>
                                                 @endif 
                                                 @if($value->status_pengujian==null)
-                                                    <td>Pengujian belum diatasi</td>
+                                                    <td>Pengujian belum ditangani</td>
                                                 @elseif($value->status_pengujian!=null)
                                                     <td>{{ $value->status_pengujian }}</td>
                                                 @endif 
                                                 @if($value->hasil_pengujian==null)
-                                                    <td>Pengujian belum diatasi</td>
+                                                    <td>Pengujian belum ditangani</td>
                                                 @elseif($value->hasil_pengujian!=null)
                                                     <td>{{ $value->hasil_pengujian }}</td>
-                                                @endif 
+                                                @endif
+                                                @if($value->tgl_barang_diterima==null) 
                                                 <td>
-                                                <form action="{{ route('pengujian.destroy', $value->id_pengujian) }}" method="post">
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Ubah Status</a>
-                                                </form>
+                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Verifikasi Penerimaan</a>
                                                 </td>
+                                                @elseif($value->tgl_barang_diterima!=null)
+                                                <td>
+                                                    <a href="{{ route('pengujian.show', $value->id_pengujian) }}" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-eye"></i> Input Hasil</a>
+                                                </td>
+                                                @endif
                                             </tr>
                                         @endforeach
                                         </tbody>

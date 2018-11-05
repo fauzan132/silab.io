@@ -186,6 +186,9 @@
                             <a class="waves-effect waves-dark" href="{{ route('pengujian.index')}}" aria-expanded="false"><i class="mdi mdi-thermometer-lines"></i><span class="hide-menu">Pengujian </span></a>
                         </li>
                         @endif
+                        <li class="">
+                            <a class="waves-effect waves-dark" href="{{ route('pengujian.berhasil')}}" aria-expanded="false"><i class="mdi mdi-thermometer-lines"></i><span class="hide-menu">Log. Pengujian </span></a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

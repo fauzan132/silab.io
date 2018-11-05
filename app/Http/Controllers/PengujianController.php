@@ -6,6 +6,7 @@ use App\Pengujian;
 use DateTime;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input; 
 
 class PengujianController extends Controller
 {
@@ -127,7 +128,7 @@ class PengujianController extends Controller
         $data['data']=Pengujian::getdatapetugas2($id);
         return view('admin.pengujian.formpengujian')
         ->with($data);
-        print_r($data);
+        //print_r($data);
     }
 
     public function verifikasibayar(Request $request)
@@ -141,6 +142,53 @@ class PengujianController extends Controller
         $data->status_pengujian = "Sedang Proses";
         $data->save();
         return redirect()->route('pengujian.liststatusadmin');
+    }
+
+    public function verifikasibarangdatang(Request $request)
+    {
+        if($file=$request->file('hasil_pengujian')){
+            if($file->getClientOriginalExtension()=="doc" or $file->getClientOriginalExtension()=="docx" or $file->getClientOriginalExtension()=="pdf"){
+                $name=("HasilUji".time()).".".$file->getClientOriginalExtension();
+                $file->move('hasilpengujian',$name);
+                $berkas=$name;
+            }else{
+                return "Format tidak didukung";
+            }
+        }
+        if($request->input('tgl_barang_diterima')==null){
+            $id = $request->id_pengujian;
+            $id_petugas_lab = Pengujian::getIDAdmin(Auth::user()->id);
+            $tgl_barang_diterima = new DateTime('Asia/Jakarta');
+            $data = Pengujian::where('id_pengujian',$id)->first();
+            $data->id_petugas_lab = $id_petugas_lab;
+            $data->tgl_barang_diterima = $tgl_barang_diterima;
+            $data->save();
+            return redirect()->route('pengujian.index');
+        }elseif($request->input('tgl_barang_diterima')!=null){
+            $id = $request->id_pengujian;
+            $tgl_barang_selesai = new DateTime('Asia/Jakarta');
+            $hasil_pengujian = $berkas;
+            $data = Pengujian::where('id_pengujian',$id)->first();
+            $data->tgl_barang_selesai = $tgl_barang_selesai;
+            $data->hasil_pengujian = $hasil_pengujian;
+            $data->status_pengujian = "Selesai";
+            $data->save();
+            return redirect()->route('pengujian.index');
+            //print_r($id);
+        }
+        
+    }
+
+    public function logpengujian(){
+        $data['data']=Pengujian::getLogUjiLab();
+        return view('petugas.pengujian.logpengujian')
+        ->with($data);
+    }
+
+    public function logdetailpengujian($id){
+        $data['data']=Pengujian::getLogDetail($id);
+        return view('admin.pengujian.logdetailpengujian')
+        ->with($data);
     }
     
 }

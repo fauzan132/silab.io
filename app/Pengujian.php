@@ -47,11 +47,10 @@ class Pengujian extends Model
 
     public static function getdatapetugas($data){
       $data=DB::table('pengujian')
-      ->join('petugas','pengujian.id_petugas_lab','=','petugas.id_petugas')
       ->join('perusahaan','pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
       ->join('barang','pengujian.id_barang','=','barang.id_barang')
       ->where('pengujian.id_pengujian',$data)
-      ->select('pengujian.*','petugas.nama_petugas','perusahaan.nama_perusahaan','barang.nama_barang')
+      ->select('pengujian.*','perusahaan.nama_perusahaan','barang.nama_barang')
       ->first();
       return $data;
     }
@@ -72,6 +71,26 @@ class Pengujian extends Model
       ->where('users.id',$data)
       ->select('petugas.id_petugas')
       ->value('petugas.id_petugas');
+      return $data;
+    }
+
+    public static function getLogUjiLab(){
+      return $data = Pengujian::select('*')
+      ->join('barang', 'pengujian.id_barang','=','barang.id_barang')
+      ->join('perusahaan', 'pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
+      ->select('pengujian.*', 'barang.nama_barang','perusahaan.nama_perusahaan')
+      ->where('pengujian.status_pengujian','Selesai')
+      ->get();
+    }
+
+    public static function getLogDetail($data){
+      $data=DB::table('pengujian')
+      ->join('perusahaan','pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
+      ->join('petugas','pengujian.id_petugas_admin','=','petugas.id_petugas')
+      ->join('barang','pengujian.id_barang','=','barang.id_barang')
+      ->where('pengujian.id_pengujian',$data)
+      ->select('pengujian.*','perusahaan.nama_perusahaan','petugas.nama_petugas','barang.nama_barang')
+      ->first();
       return $data;
     }
 }

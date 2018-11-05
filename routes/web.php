@@ -54,5 +54,9 @@ Route::get('/liststatusadmin','PengujianController@listpengujianadmin')->name('p
 Route::post('/verifikasibayar','PengujianController@verifikasibayar')->name('pengujian.verifikasibayar');
 Route::get('/formpengujianlab/{id}','PengujianController@panggilujipetugas')->name("pengujian.formpengujianlab");
 
+Route::post('/verifikasidatang','PengujianController@verifikasibarangdatang')->name('pengujian.verifikasibarangdatang');
+Route::get('/logpengujian','PengujianController@logpengujian')->name('pengujian.berhasil');
+Route::get('/logpengujian/{id}','PengujianController@logdetailpengujian')->name('pengujian.logdetail');
+
 //BARANG
 Route::resource('barang','BarangController');

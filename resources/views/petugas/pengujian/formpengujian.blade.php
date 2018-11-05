@@ -58,6 +58,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="example-tel-input" class="col-3 col-form-label">Bukti Pembayaran</label>
+                                        <div class="col-9">
+                                           <img class="img-responsive buktibayar" src="{{ asset('dashboard_asset/images/background/socialbg.jpg') }}" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tanggal Barang Diterima</label>
                                         <div class="col-9">
                                         <?php $now = new DateTime($data->tgl_barang_diterima);

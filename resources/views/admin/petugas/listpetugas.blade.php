@@ -26,6 +26,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Data Petugas</h4>
                                 <div class="table-responsive m-t-40">
+                                <a href="{{ route('petugas.create')}}"><button type="button" class="btn btn-sm waves-effect waves-light btn-success"><i class="ti-plus"></i> Tambah Data</button></a>
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>

@@ -20,56 +20,61 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-3 col-md-6">
+                    <!-- <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-info"><i class="ti-wallet"></i></div>
                                     <div class="m-l-10 align-self-center">
                                         <h3 class="m-b-0 font-light">3249</h3>
-                                        <h5 class="text-muted m-b-0">Test</h5></div>
+                                        <h5 class="text-muted m-b-0">Pengujian Berhasil </h5></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-3 col-md-6">
+                   <?php
+                        $belum=DB::table('pengujian')->select(DB::raw('count(*) as belumselesai'))->where('status_pengujian', 'Belum Diproses')->value('id_pengajuan');
+                        $proses=DB::table('pengujian')->select(DB::raw('count(*) as sedangproses'))->where('status_pengujian', 'Sedang Proses')->value('id_pengajuan');
+                        $selesai=DB::table('pengujian')->select(DB::raw('count(*) as prosesselesai'))->where('status_pengujian', 'Selesai')->value('id_pengajuan');
+                   ?>
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-warning"><i class="mdi mdi-cellphone-link"></i></div>
                                     <div class="m-l-10 align-self-center">
-                                        <h3 class="m-b-0 font-lgiht">2376</h3>
-                                        <h5 class="text-muted m-b-0">Test</h5></div>
+                                        <h3 class="m-b-0 font-lgiht">{{ $selesai }}</h3>
+                                        <h5 class="text-muted m-b-0">Pengujian Berhasil </h5></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-primary"><i class="mdi mdi-cart-outline"></i></div>
                                     <div class="m-l-10 align-self-center">
-                                        <h3 class="m-b-0 font-lgiht">1795</h3>
-                                        <h5 class="text-muted m-b-0">Test</h5></div>
+                                        <h3 class="m-b-0 font-lgiht">{{ $proses }}</h3>
+                                        <h5 class="text-muted m-b-0">Pengujian sedang Proses </h5></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-row">
                                     <div class="round round-lg align-self-center round-danger"><i class="mdi mdi-bullseye"></i></div>
                                     <div class="m-l-10 align-self-center">
-                                        <h3 class="m-b-0 font-lgiht">687</h3>
-                                        <h5 class="text-muted m-b-0">Test</h5></div>
+                                        <h3 class="m-b-0 font-lgiht">{{ $belum }}</h3>
+                                        <h5 class="text-muted m-b-0">Pengujian Belum Diterima</h5></div>
                                 </div>
                             </div>
                         </div>

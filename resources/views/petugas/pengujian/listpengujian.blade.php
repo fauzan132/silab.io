@@ -53,11 +53,11 @@
                                                 @if($value->id_petugas_lab==null)
                                                     <td>Pengujian belum diatasi</td>
                                                 @elseif($value->id_petugas_lab!=null)
-                                                    <td>{{ $value->id_petugas_lab }}</td>
+                                                    <td>{{ $value->nama_petugas }}</td>
                                                 @endif
-                                                @if($value->id_nama_perusahaan==null)
+                                                @if($value->nama_perusahaan==null)
                                                     <td>Pengujian belum diatasi</td>
-                                                @elseif($value->id_nama_perusahaan!=null)
+                                                @elseif($value->nama_perusahaan!=null)
                                                     <td>{{ $value->nama_perusahaan }}</td>
                                                 @endif
                                                 @if($value->total_harga==null)

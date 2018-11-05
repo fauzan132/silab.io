@@ -14,8 +14,8 @@ class PengujianController extends Controller
      */
     public function index()
     {
-        $data['data']=Pengujian::get();
-        return view('admin.pengujian.listpengujian')
+        $data['data']=Pengujian::getDataPengujian();
+        return view('petugas.pengujian.listpengujian')
         ->with($data);
     }
 
@@ -59,8 +59,8 @@ class PengujianController extends Controller
      */
     public function show($id)
     {
-        $data['data']=Pengujian::find($id);
-        return view('admin.pengujian.detailpengujian')
+        $data['data']=Pengujian::getdatapetugas($id);
+        return view('petugas.pengujian.formpengujian')
         ->with($data);
     }
 

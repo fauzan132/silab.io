@@ -27,19 +27,19 @@ class Pengujian extends Model
 
     public static function getDataPengujianLab(){
       return $data = Pengujian::select('*')
-       ->join('petugas', 'pengujian.id_petugas_lab','=','petugas.id_petugas')
+       ->join('barang', 'pengujian.id_barang','=','barang.id_barang')
        ->join('perusahaan', 'pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
-       ->select('pengujian.*', 'petugas.nama_petugas','perusahaan.nama_perusahaan')
-       ->where('pengujian.hasil_pengujian',null)
+       ->select('pengujian.*', 'barang.nama_barang','perusahaan.nama_perusahaan')
+       ->where('pengujian.status_pengujian','Sedang Proses')
        ->get();
     }
 
     public static function getDataPengujianAdmin(){
       return $data = Pengujian::select('*')
-       ->join('petugas', 'pengujian.id_petugas_lab','=','petugas.id_petugas')
+       ->join('barang', 'pengujian.id_barang','=','barang.id_barang')
        ->join('perusahaan', 'pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
-       ->select('pengujian.*', 'petugas.nama_petugas','perusahaan.nama_perusahaan')
-       ->where('pengujian.tgl_verifikasi',null)
+       ->select('pengujian.*','perusahaan.nama_perusahaan', 'barang.nama_barang')
+       ->where('pengujian.status_pengujian','Belum Diproses')
        ->get();
     }
 

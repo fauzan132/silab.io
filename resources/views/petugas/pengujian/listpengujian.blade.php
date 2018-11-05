@@ -31,10 +31,11 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Petugas Lab</th>
                                                 <th>Nama Perusahaan</th>
-                                                <th>Total Harga</th>
-                                                <th>Bukti Pembayaran</th>
+                                                <th>Nama Barang</th>
+                                                <th>Jumlah Barang</th>
+                                                <th>Tanggal Barang Diterima</th>
+                                                <th>Tanggal Barang Selesai Diuji</th>
                                                 <th>Status Pengujian</th>
                                                 <th>Hasil Pengujian</th>
                                                 <th>Aksi</th>
@@ -49,26 +50,31 @@
                                             $i++;
                                         ?>
                                             <tr>
-                                                <td>{{ $i }}</td>
-                                                @if($value->id_petugas_lab==null)
-                                                    <td>Pengujian belum diatasi</td>
-                                                @elseif($value->id_petugas_lab!=null)
-                                                    <td>{{ $value->nama_petugas }}</td>
-                                                @endif
+                                                <td>{{ $i }}</td>                                               
                                                 @if($value->nama_perusahaan==null)
                                                     <td>Pengujian belum diatasi</td>
                                                 @elseif($value->nama_perusahaan!=null)
                                                     <td>{{ $value->nama_perusahaan }}</td>
                                                 @endif
-                                                @if($value->total_harga==null)
+                                                @if($value->nama_barang==null)
                                                     <td>Pengujian belum diatasi</td>
-                                                @elseif($value->total_harga!=null)          
-                                                    <td>{{ $value->total_harga }}</td>
+                                                @elseif($value->nama_barang!=null)
+                                                    <td>{{ $value->nama_barang }}</td>
+                                                @endif    
+                                                @if($value->jumlah_barang==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->jumlah_barang!=null)
+                                                    <td>{{ $value->jumlah_barang }}</td>   
+                                                @endif     
+                                                @if($value->tanggal_barang_diterima==null)
+                                                    <td>Pengujian belum diatasi</td>
+                                                @elseif($value->tanggal_barang_diterima!=null)          
+                                                    <td>{{ $value->tanggal_barang_diterima }}</td>
                                                 @endif
-                                                @if($value->bukti_pembayaran==null)
+                                                @if($value->tanggal_barang_selesai==null)
                                                     <td>Pengujian belum diatasi</td>
-                                                @elseif($value->bukti_pembayaran!=null)
-                                                    <td>{{ $value->bukti_pembayaran }}</td>
+                                                @elseif($value->tanggal_barang_selesai!=null)
+                                                    <td>{{ $value->tanggal_barang_selesai }}</td>
                                                 @endif 
                                                 @if($value->status_pengujian==null)
                                                     <td>Pengujian belum diatasi</td>

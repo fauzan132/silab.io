@@ -117,7 +117,7 @@ class PengujianController extends Controller
 
     public function listpengujianadmin()
     {
-        $data['data']=Pengujian::get();
+        $data['data']=Pengujian::getDataPengujianAdmin();
         return view('admin.pengujian.listpengujian')
         ->with($data);
     }

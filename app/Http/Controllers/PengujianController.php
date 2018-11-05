@@ -16,7 +16,7 @@ class PengujianController extends Controller
      */
     public function index()
     {
-        $data['data']=Pengujian::getDataPengujian();
+        $data['data']=Pengujian::getDataPengujianLab();
         return view('petugas.pengujian.listpengujian')
         ->with($data);
     }

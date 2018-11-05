@@ -27,11 +27,12 @@
                         <div class="card-body">
                                 <div class="d-flex no-block align-self-center">
                                     <div>
-                                        <h4 class="card-title">Form Tambah Pengujian</h4>
+                                        <h4 class="card-title">Form Status Pengujian</h4>
                                     </div> 
                                 </div>
                                
-                                <form class="form">
+                                <form method="POST" action="{{ route('pengujian.store') }}" enctype="multipart/form-data" class="form">
+                                {{ csrf_field() }}
                                     <div class="form-group m-t-40 row">
                                         <label for="example-text-input" class="col-3 col-form-label">Nama Petugas Lab</label>
                                         <div class="col-9">
@@ -59,22 +60,28 @@
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tanggal Barang Diterima</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="date" name="tgl_barang_diterima" id="example-tel-input" value="{{$data->tgl_barang_diterima}}">
+                                        <?php $now = new DateTime($data->tgl_barang_diterima);
+                                             $timestring = $now->format('Y-m-d');
+                                        ?>
+                                            <input class="form-control" type="date" name="tgl_barang_diterima" id="example-tel-input" value="{{ $timestring }}">
                                         </div>
                                     </div>
                                                                        
-                                    @if($data->tgl_barang_diterima!=null)
+                                    @if($data->tgl_barang_selesai!=null)
                                      <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tanggal Barang Selesai Diuji</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="date" name="tgl_barang_selesai" id="example-tel-input">
+                                        <?php $now = new DateTime($data->tgl_barang_selesai);
+                                             $timestring = $now->format('Y-m-d');
+                                        ?>
+                                            <input class="form-control" type="date" name="tgl_barang_selesai" id="example-tel-input" value="{{ $timestring }}">
                                         </div>
                                     </div>
                                     @endif
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Hasil Pengujian</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="file" name="hasil_pengujian" id="example-tel-input">
+                                            <input class="form-control" type="file" value="{{ asset('hasilpengujian/'.$data->hasil_pengujian) }}" name="hasil_pengujian" id="example-tel-input">
                                         </div>
                                     </div>
                                     <div class="form-group">

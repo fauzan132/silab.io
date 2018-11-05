@@ -24,6 +24,17 @@ class Pengujian extends Model
        ->get();
     }
 
+
+    public static function getDataPengujian(){
+      return $data = Pengujian::select('*')
+       ->join('petugas', 'pengujian.id_petugas_lab','=','petugas.id_petugas')
+       ->join('perusahaan', 'pengujian.id_perusahaan','=','perusahaan.id_perusahaan')
+       ->select('pengujian.*', 'petugas.nama_petugas','perusahaan.nama_perusahaan')
+       ->get();
+    }
+
+
+
     public static function getdatapetugas($data){
       $data=DB::table('pengujian')
       ->join('petugas','pengujian.id_petugas_lab','=','petugas.id_petugas')

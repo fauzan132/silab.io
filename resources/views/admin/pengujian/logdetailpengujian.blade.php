@@ -109,7 +109,7 @@
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Hasil Pengujian</label>
                                         <div class="col-9">
-                                            <label for="example-tel-input" class="col-3 col-form-label"><a href="{{ asset('/hasilpengujian/'.$data->hasil_pengujian) }}" download>Download Hasil Uji</a></label>
+                                            <label for="example-tel-input" class="col-3 col-form-label"><a href="../hasilpengujian/{{$data->hasil_pengujian}}" download>Download Hasil Uji</a></label>
                                             <!-- <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->hasil_pengujian }}" disabled> -->
                                         </div>
                                     </div>

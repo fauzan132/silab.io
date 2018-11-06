@@ -52,37 +52,37 @@
                                             <tr>
                                                 <td>{{ $i }}</td>                                               
                                                 @if($value->nama_perusahaan==null)
-                                                    <td>Pengujian belum diatasi</td>
+                                                    <td>-</td>
                                                 @elseif($value->nama_perusahaan!=null)
                                                     <td>{{ $value->nama_perusahaan }}</td>
                                                 @endif
                                                 @if($value->nama_barang==null)
-                                                    <td>Pengujian belum diatasi</td>
+                                                    <td>-</td>
                                                 @elseif($value->nama_barang!=null)
                                                     <td>{{ $value->nama_barang }}</td>
                                                 @endif    
                                                 @if($value->jumlah_barang==null)
-                                                    <td>Pengujian belum diatasi</td>
+                                                    <td>-</td>
                                                 @elseif($value->jumlah_barang!=null)
                                                     <td>{{ $value->jumlah_barang }}</td>   
                                                 @endif     
                                                 @if($value->tgl_barang_diterima==null)
-                                                    <td>Pengujian belum ditangani</td>
+                                                    <td>-</td>
                                                 @elseif($value->tgl_barang_diterima!=null)          
                                                     <td>{{ $value->tgl_barang_diterima }}</td>
                                                 @endif
                                                 @if($value->tgl_barang_selesai==null)
-                                                    <td>Pengujian belum ditangani</td>
+                                                    <td>-</td>
                                                 @elseif($value->tgl_barang_selesai!=null)
                                                     <td>{{ $value->tgl_barang_selesai }}</td>
                                                 @endif 
                                                 @if($value->status_pengujian==null)
-                                                    <td>Pengujian belum ditangani</td>
+                                                    <td>-</td>
                                                 @elseif($value->status_pengujian!=null)
                                                     <td>{{ $value->status_pengujian }}</td>
                                                 @endif 
                                                 @if($value->hasil_pengujian==null)
-                                                    <td>Pengujian belum ditangani</td>
+                                                    <td>-</td>
                                                 @elseif($value->hasil_pengujian!=null)
                                                     <td>{{ $value->hasil_pengujian }}</td>
                                                 @endif

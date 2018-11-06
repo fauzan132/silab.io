@@ -67,7 +67,7 @@
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Hasil Pengujian</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="file" value="{{ asset('hasilpengujian/'.$data->hasil_pengujian) }}" name="hasil_pengujian" id="example-tel-input">
+                                            <input class="form-control" type="file" accept=".pdf,.doc,.docx"  onChange="validate(this.value)" value="{{ asset('hasilpengujian/'.$data->hasil_pengujian) }}" name="hasil_pengujian" id="fileinput">
                                         </div>
                                     </div>
                                     @endif
@@ -96,4 +96,16 @@
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
                 <!-- ============================================================== -->
+<script>
+function validate(file) {
+    var ext = file.split(".");
+    ext = ext[ext.length-1].toLowerCase();      
+    var arrayExtensions = ["doc" , "docx", "pdf"];
+
+    if (arrayExtensions.lastIndexOf(ext) == -1) {
+        alert("Jenis Berkas Tidak Didukung.");
+        $("#fileinput").val("");
+    }
+}
+</script>
 @endsection

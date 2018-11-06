@@ -192,9 +192,10 @@ class PengujianController extends Controller
         ->with($data);
     }
 
-     public function hasiluji($id){
+    public function hasiluji($id){
         $data=Pengujian::find($id);
-        return Storage::download(public_path('/hasilpengujian'.$data->hasil_pengujian));
+        $pathToFile='/hasilpengujian'.'/'.$data->hasil_pengujian;
+        return response()->download(public_path($pathToFile));
     }
     
 }

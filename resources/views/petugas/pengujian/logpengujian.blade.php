@@ -57,7 +57,7 @@
                                                     <td>{{ $value->tgl_barang_diterima }}</td>
                                                     <td>{{ $value->tgl_barang_selesai }}</td>
                                                     <td>{{ $value->status_pengujian }}</td>
-                                                    <td><a href="../hasilpengujian/{{$value->hasil_pengujian}}" download>Download Hasil Uji</a></td>
+                                                    <td><a href="{{ route('pengujian.hasil', $value->id_pengujian) }}">Download Hasil Uji</a></td>
                                                 <td>
                                                     <a href="{{ route('pengujian.logdetail', $value->id_pengujian) }}" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-eye"></i> Lihat Detail Pengujian</a>
                                                 </td>

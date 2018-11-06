@@ -48,7 +48,7 @@
                                                 <form action="{{ route('lab.destroy', $value->id_lab) }}" method="post">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <a href="{{ route('lab.show', $value->id_lab) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
+                                                    <!-- <a href="{{ route('lab.show', $value->id_lab) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a> -->
                                                     <a href="{{ route('lab.edit', $value->id_lab) }}" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
                                                     <button type="submit" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
                                                 </form>

@@ -48,7 +48,7 @@
                                                 <form action="{{ route('petugas.destroy', $value->id_petugas) }}" method="post">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <a href="{{ route('petugas.show', $value->id_petugas) }}"  class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
+                                                    <!-- <a href="{{ route('petugas.show', $value->id_petugas) }}"  class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a> -->
                                                     <a href="{{ route('petugas.edit', $value->id_petugas) }}"  class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
                                                     <button type="submit" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
                                                 </form>

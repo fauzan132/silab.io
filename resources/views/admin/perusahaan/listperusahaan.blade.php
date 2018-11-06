@@ -52,7 +52,7 @@
                                                 <form action="{{ route('perusahaan.destroy', $value->id_perusahaan) }}" method="post">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                    <a href="{{ route('perusahaan.show', $value->id_perusahaan) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a>
+                                                    <!-- <a href="{{ route('perusahaan.show', $value->id_perusahaan) }}" class="btn btn-sm waves-effect waves-light btn-info"><i class="ti-eye"></i> Detail</a> -->
                                                     <a href="{{ route('perusahaan.edit', $value->id_perusahaan) }}" class="btn btn-sm waves-effect waves-light btn-warning"><i class="ti-pencil-alt"></i> Ubah</a>
                                                     <button type="submit" class="btn btn-sm waves-effect waves-light btn-danger"><i class="ti-trash"></i> Hapus</button>
                                                 </form>

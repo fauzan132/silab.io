@@ -7,6 +7,7 @@ use DateTime;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input; 
+use Illuminate\Support\Facades\Storage;
 
 class PengujianController extends Controller
 {
@@ -189,6 +190,11 @@ class PengujianController extends Controller
         $data['data']=Pengujian::getLogDetail($id);
         return view('admin.pengujian.logdetailpengujian')
         ->with($data);
+    }
+
+     public function hasiluji($id){
+        $data=Pengujian::find($id);
+        return Storage::download(public_path('/hasilpengujian'.$data->hasil_pengujian));
     }
     
 }

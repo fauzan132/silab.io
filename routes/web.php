@@ -58,5 +58,7 @@ Route::post('/verifikasidatang','PengujianController@verifikasibarangdatang')->n
 Route::get('/logpengujian','PengujianController@logpengujian')->name('pengujian.berhasil');
 Route::get('/logpengujian/{id}','PengujianController@logdetailpengujian')->name('pengujian.logdetail');
 
+//DOWNLOAD HASIL PENGUJIAN
+Route::get('/hasiluji/download/{id}','PengujianController@hasiluji')->name('pengujian.hasil');
 //BARANG
 Route::resource('barang','BarangController');

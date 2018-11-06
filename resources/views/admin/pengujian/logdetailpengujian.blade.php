@@ -57,24 +57,30 @@
                                             <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->jumlah_barang }}" disabled>
                                         </div>
                                     </div>
+                                    @if(Auth::user()->level==0)
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Total Harga</label>
                                         <div class="col-9">
                                             <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->total_harga }}" disabled>
                                         </div>
                                     </div>
+                                    @endif
+                                    @if(Auth::user()->level==0)
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Bukti Pembayaran</label>
                                         <div class="col-9">
                                            <img class="img-responsive buktibayar" disable width="400px" height="200px" src="{{ asset('buktibayar/'.$data->bukti_pembayaran ) }}" />
                                         </div>
                                     </div>
+                                    @endif
+                                    @if(Auth::user()->level==0)
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tgl. Bayar</label>
                                         <div class="col-9">
                                             <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->tgl_bayar }}" disabled>
                                         </div>
                                     </div>
+                                    @endif
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tgl. Verifikasi</label>
                                         <div class="col-9">

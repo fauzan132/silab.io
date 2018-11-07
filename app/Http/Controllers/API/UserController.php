@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use App\Perusahaan;
  
 
 class UserController extends Controller
@@ -46,10 +47,27 @@ class UserController extends Controller
         return response()->json(['success'=>$success], $this->successStatus);
     }
 
+    // public function details()
+    // {
+    //     $user = Auth::user();
+    //     return response()->json(['success' => $user], $this->successStatus);
+    // }
+
     public function details()
     {
-        $user = Auth::user();
-        return response()->json(['success' => $user], $this->successStatus);
+        if(Auth::user()->level==0){
+            $user = Auth::user();
+            return response()->json(['success' => $user], $this->successStatus);
+        }else if(Auth::user()->level==1){
+            $user = Auth::user()->id;
+            $data = User::getDetailsPetugas($user);
+            return response()->json(['success' => $data], $this->successStatus);
+        }else if(Auth::user()->level==2){
+            $user = Auth::user()->id;
+            $data = User::getDetailsPerusahaan($user);
+            return response()->json(['success' => $data], $this->successStatus);
+        }
+       
     }
 
 }

@@ -29,10 +29,10 @@ class TransaksiController extends Controller
             return response()->json(['success'=>'Data Kosong'], $this->successStatus);
         }
 
-    //     $id='PG00000001';
-    //     $data['data']=Pengujian::where('id_pengujian',$id)->get();
-    //     return view('tes', $data);
-    //    print_r($data['data']);
+        // $id='PG00000005';
+        // $data['data']=Pengujian::where('id_pengujian',$id)->get();
+        // return view('tes', $data);
+        // print_r($data['data']);
     }
 
     public function store(Request $request)
@@ -65,11 +65,11 @@ class TransaksiController extends Controller
                     return response()->json(['error'=>'File tidak didukung'], $this->successStatus);
                 }
         }
-        $id_petugas_admin = $request->input('id_petugas_admin');
+        // $id_petugas_admin = $request->input('id_petugas_admin');
         $tgl_bayar = new DateTime('Asia/Jakarta');
         $bukti_pembayaran = $berkas;
         $data = Pengujian::where('id_pengujian',$id)->first();
-        $data->id_petugas_admin = $id_petugas_admin;
+        // $data->id_petugas_admin = $id_petugas_admin;
         $data->tgl_bayar = $tgl_bayar;
         $data->bukti_pembayaran = $bukti_pembayaran;
 

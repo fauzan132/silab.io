@@ -62,3 +62,5 @@ Route::get('/logpengujian/{id}','PengujianController@logdetailpengujian')->name(
 Route::get('/hasiluji/download/{id}','PengujianController@hasiluji')->name('pengujian.hasil');
 //BARANG
 Route::resource('barang','BarangController');
+
+// Route::get('pengujiantes/', 'API\TransaksiController@index');

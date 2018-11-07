@@ -24,6 +24,15 @@ class Pengujian extends Model
        ->get();
     }
 
+    public static function getPengujianDetail($id){
+      return $data = DB::table('pengujian')
+       ->join('barang', 'pengujian.id_barang','=','barang.id_barang')
+       ->join('laboratorium', 'barang.id_lab','=','laboratorium.id_lab')
+       ->select('pengujian.*', 'barang.nama_barang','laboratorium.nama_lab')
+       ->where('pengujian.id_perusahaan', $id)
+       ->get();
+    }
+
 
     public static function getDataPengujianLab(){
       return $data = Pengujian::select('*')

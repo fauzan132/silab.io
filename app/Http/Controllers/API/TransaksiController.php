@@ -35,6 +35,22 @@ class TransaksiController extends Controller
         // print_r($data['data']);
     }
 
+    public function selectByPerusahaan($id)
+    {
+        $data = Pengujian::getPengujianDetail($id);
+        if(count($data) > 0){ //mengecek apakah data kosong atau tidak
+            return response()->json(['success'=>$data], $this->successStatus);
+        }
+        else{
+            return response()->json(['success'=>'Data Kosong'], $this->successStatus);
+        }
+
+        // $id='PG00000005';
+        // $data['data']=Pengujian::where('id_pengujian',$id)->get();
+        // return view('tes', $data);
+        // print_r($data['data']);
+    }
+
     public function store(Request $request)
     {
         //$id_perusahaan = Perusahaan::getIDPerusahaan(Auth::user()->id);

@@ -77,45 +77,58 @@
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tgl. Bayar</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->tgl_bayar }}" disabled>
+                                        <?php $now = new DateTime($data->tgl_bayar);
+                                             $timestring = $now->format('H:i:s d-M-Y');
+                                        ?>
+                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$timestring }}" disabled>
                                         </div>
                                     </div>
                                     @endif
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tgl. Verifikasi</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->tgl_verifikasi }}" disabled>
+                                        <?php $now = new DateTime($data->tgl_verifikasi);
+                                             $timestring = $now->format('H:i:s d-M-Y');
+                                        ?>
+                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$timestring }}" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tgl. Barang Diterima</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->tgl_barang_diterima }}" disabled>
+                                        <?php $now = new DateTime($data->tgl_barang_diterima);
+                                             $timestring = $now->format('H:i:s d-M-Y');
+                                        ?>
+                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$timestring }}" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Tgl. Barang Selesai</label>
                                         <div class="col-9">
-                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->tgl_barang_selesai }}" disabled>
+                                        <?php $now = new DateTime($data->tgl_barang_selesai);
+                                             $timestring = $now->format('H:i:s d-M-Y');
+                                        ?>
+                                            <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$timestring }}" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Status Pengujian</label>
                                         <div class="col-9">
-                                            <label for="example-tel-input" class="col-3 col-form-label btn btn-warning waves-effect waves-light m-t-10">{{$data->status_pengujian }}</label>
+                                            <label for="example-tel-input" class="col-3 col-form-label"><h3><span class="label label-info">{{$data->status_pengujian }}</span></h3></label>
                                             <!-- <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->status_pengujian }}" disabled> -->
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-tel-input" class="col-3 col-form-label">Hasil Pengujian</label>
                                         <div class="col-9">
-                                            <label for="example-tel-input" class="col-3 col-form-label"><a href="{{ route('pengujian.hasil', $data->id_pengujian) }}" >Download Hasil Uji</a></label>
+                                            <label for="example-tel-input" class="col-3 col-form-label"><a href="{{ route('pengujian.hasil', $data->id_pengujian) }}" class="btn btn-success waves-effect waves-light">Download Hasil Uji</a></label>
                                             <!-- <input class="form-control" type="text" name="jumlah_barang" id="example-tel-input" value="{{$data->hasil_pengujian }}" disabled> -->
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                    <div class="offset-sm-3 col-sm-9">
-                                        <a href="{{ route('pengujian.berhasil') }}" class="btn btn-default waves-effect waves-light m-t-10">Kembali</a>
+                                    <div class="offset-sm-3 col-sm-9">&nbsp;
+                                    <a href="{{ route('pengujian.berhasil') }}" class="btn btn-info waves-effect waves-light">Kembali</a>
+                                        
                                     </div>
                                 </div>
                                 </form>

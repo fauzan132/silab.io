@@ -68,13 +68,19 @@
                                                 @endif     
                                                 @if($value->tgl_barang_diterima==null)
                                                     <td>-</td>
-                                                @elseif($value->tgl_barang_diterima!=null)          
-                                                    <td>{{ $value->tgl_barang_diterima }}</td>
+                                                @elseif($value->tgl_barang_diterima!=null)
+                                                <?php $now = new DateTime($value->tgl_barang_diterima);
+                                                    $timestring = $now->format('H:i:s d-M-Y');
+                                                ?>          
+                                                    <td>{{ $timestring }}</td>
                                                 @endif
                                                 @if($value->tgl_barang_selesai==null)
                                                     <td>-</td>
                                                 @elseif($value->tgl_barang_selesai!=null)
-                                                    <td>{{ $value->tgl_barang_selesai }}</td>
+                                                <?php $now = new DateTime($value->tgl_barang_selesai);
+                                                    $timestring = $now->format('H:i:s d-M-Y');
+                                                ?>
+                                                    <td>{{ $timestring }}</td>
                                                 @endif 
                                                 @if($value->status_pengujian==null)
                                                     <td>-</td>

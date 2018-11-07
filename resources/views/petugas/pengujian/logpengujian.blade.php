@@ -53,9 +53,15 @@
                                                     <td>{{ $i }}</td>                                               
                                                     <td>{{ $value->nama_perusahaan }}</td>
                                                     <td>{{ $value->nama_barang }}</td>
-                                                    <td>{{ $value->jumlah_barang }}</td>           
-                                                    <td>{{ $value->tgl_barang_diterima }}</td>
-                                                    <td>{{ $value->tgl_barang_selesai }}</td>
+                                                    <td>{{ $value->jumlah_barang }}</td>
+                                                    <?php $now = new DateTime($value->tgl_barang_diterima);
+                                                    $timestring = $now->format('H:i:s d-M-Y');
+                                                    ?>           
+                                                    <td>{{ $timestring }}</td>
+                                                    <?php $now = new DateTime($value->tgl_barang_selesai);
+                                                    $timestring = $now->format('H:i:s d-M-Y');
+                                                    ?>
+                                                    <td>{{ $timestring }}</td>
                                                     <td>{{ $value->status_pengujian }}</td>
                                                     <td><a href="{{ route('pengujian.hasil', $value->id_pengujian) }}">Download Hasil Uji</a></td>
                                                 <td>

@@ -57,7 +57,7 @@
                                         <label for="example-tel-input" class="col-3 col-form-label">Tanggal Barang Diterima</label>
                                         <div class="col-9">
                                         <?php $now = new DateTime($data->tgl_barang_diterima);
-                                             $timestring = $now->format('Y-m-d');
+                                             $timestring = $now->format('H:i:s d-M-Y');
                                         ?>
                                             <input class="form-control" type="date" name="tgl_barang_diterima"  readonly id="example-tel-input" value="{{ $timestring }}">
                                         </div>

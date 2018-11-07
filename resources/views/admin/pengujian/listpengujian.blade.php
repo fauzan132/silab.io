@@ -68,8 +68,11 @@
                                                 @endif
                                                 @if($value->tgl_bayar==null)
                                                     <td>-</td>
-                                                @elseif($value->tgl_bayar!=null)          
-                                                    <td>{{ $value->tgl_bayar }}</td>
+                                                @elseif($value->tgl_bayar!=null)  
+                                                <?php $now = new DateTime($value->tgl_bayar);
+                                                    $timestring = $now->format('H:i:s d-M-Y');
+                                                ?>        
+                                                    <td>{{ $timestring }}</td>
                                                 @endif
                                                 @if($value->status_pengujian==null)
                                                     <td>-</td>

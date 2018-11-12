@@ -71,7 +71,7 @@
                                                 @elseif($value->tgl_barang_diterima!=null)
                                                 <?php $now = new DateTime($value->tgl_barang_diterima);
                                                     $timestring = $now->format('H:i:s d-M-Y');
-                                                ?>          
+                                                ?>
                                                     <td>{{ $timestring }}</td>
                                                 @endif
                                                 @if($value->tgl_barang_selesai==null)

@@ -72,18 +72,19 @@ class TransaksiController extends Controller
 
     public function addBuktiBayar(Request $request, $id)
     {   
-        if($file=$request->file('bukti_pembayaran')){
-                if($file->getClientOriginalExtension()=="png" or $file->getClientOriginalExtension()=="jpg" or $file->getClientOriginalExtension()=="jpeg"){
-                    $name=sha1($file->getClientOriginalName().time()).".".$file->getClientOriginalExtension();
-                    $file->move('buktibayar',$name);
-                    $berkas=$name;
-                }else{
-                    return response()->json(['error'=>'File tidak didukung'], $this->successStatus);
-                }
-        }
+        // if($file=$request->file('bukti_pembayaran')){
+        //         if($file->getClientOriginalExtension()=="png" or $file->getClientOriginalExtension()=="jpg" or $file->getClientOriginalExtension()=="jpeg"){
+        //             $name=sha1($file->getClientOriginalName().time()).".".$file->getClientOriginalExtension();
+        //             $file->move('buktibayar',$name);
+        //             $berkas=$name;
+        //         }else{
+        //             return response()->json(['error'=>'File tidak didukung'], $this->successStatus);
+        //         }
+        // }
         // $id_petugas_admin = $request->input('id_petugas_admin');
         $tgl_bayar = new DateTime('Asia/Jakarta');
-        $bukti_pembayaran = $berkas;
+        $bukti_pembayaran = $request->input('bukti_pembayaran');
+        //$bukti_pembayaran = $berkas;
         $data = Pengujian::where('id_pengujian',$id)->first();
         // $data->id_petugas_admin = $id_petugas_admin;
         $data->tgl_bayar = $tgl_bayar;

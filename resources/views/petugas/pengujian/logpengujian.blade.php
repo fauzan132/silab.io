@@ -55,11 +55,11 @@
                                                     <td>{{ $value->nama_barang }}</td>
                                                     <td>{{ $value->jumlah_barang }}</td>
                                                     <?php $now = new DateTime($value->tgl_barang_diterima);
-                                                    $timestring = $now->format('H:i:s d-M-Y');
-                                                    ?>           
+                                                        $timestring = $now->format('H:i:s d-M-Y');
+                                                    ?>
                                                     <td>{{ $timestring }}</td>
                                                     <?php $now = new DateTime($value->tgl_barang_selesai);
-                                                    $timestring = $now->format('H:i:s d-M-Y');
+                                                        $timestring = $now->format('H:i:s d-M-Y');
                                                     ?>
                                                     <td>{{ $timestring }}</td>
                                                     <td>{{ $value->status_pengujian }}</td>

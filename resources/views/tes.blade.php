@@ -5,13 +5,12 @@
               <div class="col-md-12">
                 <label for="exampleInputName">ID Petugas Admin</label>
                 <input class="form-control" id="exampleInputName" type="text" name="id" value="{{ $data[0]['id_pengujian'] }}" aria-describedby="nameHelp" placeholder="1" required>
-                <input class="form-control" id="exampleInputName" type="text" name="id_petugas_admin" aria-describedby="nameHelp" placeholder="2" required>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Bukti</label>
-            <input class="form-control" id="exampleInputName" type="file" name="bukti_pembayaran" aria-describedby="nameHelp" placeholder="Nama Matakuliah" required>
+            <input class="form-control" id="exampleInputName" type="text" name="bukti_pembayaran" aria-describedby="nameHelp" placeholder="Nama Matakuliah" required>
           </div>
          
           <div class="row">

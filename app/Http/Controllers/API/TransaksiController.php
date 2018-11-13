@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input; 
 use Validator;
 use DateTime;
+use Illuminate\Support\Facades\Storage;
  
 
 class TransaksiController extends Controller
@@ -21,18 +22,18 @@ class TransaksiController extends Controller
     public function index()
     {
         
-        $data = Pengujian::getBarang();
-        if(count($data) > 0){ //mengecek apakah data kosong atau tidak
-            return response()->json(['success'=>$data], $this->successStatus);
-        }
-        else{
-            return response()->json(['success'=>'Data Kosong'], $this->successStatus);
-        }
+        // $data = Pengujian::getBarang();
+        // if(count($data) > 0){ //mengecek apakah data kosong atau tidak
+        //     return response()->json(['success'=>$data], $this->successStatus);
+        // }
+        // else{
+        //     return response()->json(['success'=>'Data Kosong'], $this->successStatus);
+        // }
 
-        // $id='PG00000005';
-        // $data['data']=Pengujian::where('id_pengujian',$id)->get();
-        // return view('tes', $data);
-        // print_r($data['data']);
+        $id='PG00000005';
+        $data['data']=Pengujian::where('id_pengujian',$id)->get();
+        return view('tes', $data);
+        print_r($data['data']);
     }
 
     public function selectByPerusahaan($id)
@@ -72,29 +73,22 @@ class TransaksiController extends Controller
 
     public function addBuktiBayar(Request $request, $id)
     {   
-        // if($file=$request->file('bukti_pembayaran')){
-        //         if($file->getClientOriginalExtension()=="png" or $file->getClientOriginalExtension()=="jpg" or $file->getClientOriginalExtension()=="jpeg"){
-        //             $name=sha1($file->getClientOriginalName().time()).".".$file->getClientOriginalExtension();
-        //             $file->move('buktibayar',$name);
-        //             $berkas=$name;
-        //         }else{
-        //             return response()->json(['error'=>'File tidak didukung'], $this->successStatus);
-        //         }
-        // }
-        // $id_petugas_admin = $request->input('id_petugas_admin');
+        $image =  $request->input('bukti_pembayaran');
+        $image = str_replace('data:image/jpg;base64,', '', $image);
+        $image = str_replace(' ', '+', $image);
+        $imageName = 'buktibayar_'.str_random(10).'_'.time().'.jpg'; //generating unique file name; 
+        \File::put(public_path('/buktibayar'). '/' . $imageName, base64_decode($image));
         $tgl_bayar = new DateTime('Asia/Jakarta');
-        $bukti_pembayaran = $request->input('bukti_pembayaran');
-        //$bukti_pembayaran = $berkas;
+        $bukti_pembayaran = $imageName;
         $data = Pengujian::where('id_pengujian',$id)->first();
-        // $data->id_petugas_admin = $id_petugas_admin;
         $data->tgl_bayar = $tgl_bayar;
         $data->bukti_pembayaran = $bukti_pembayaran;
-
         if($data->save()){
             return response()->json(['success'=>$data], $this->successStatus);
         }else{
             return response()->json(['error'=>'Error'], $this->successStatus);
         }
+      
     }
 
     public function verifikasiBayar(Request $request, $id)

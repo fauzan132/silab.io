@@ -41,3 +41,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'auth:api'], function(){
 	Route::post('details', 'API\UserController@details');
 });
+
+//Get hasil uji
+Route::get('/hasilujilab/download/{id}','API\TransaksiController@getHasilUji')->name('pengujian.hasiluji');

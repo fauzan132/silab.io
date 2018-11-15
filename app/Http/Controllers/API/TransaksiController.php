@@ -22,18 +22,18 @@ class TransaksiController extends Controller
     public function index()
     {
         
-        // $data = Pengujian::getBarang();
-        // if(count($data) > 0){ //mengecek apakah data kosong atau tidak
-        //     return response()->json(['success'=>$data], $this->successStatus);
-        // }
-        // else{
-        //     return response()->json(['success'=>'Data Kosong'], $this->successStatus);
-        // }
+        $data = Pengujian::getBarang();
+        if(count($data) > 0){ //mengecek apakah data kosong atau tidak
+            return response()->json(['success'=>$data], $this->successStatus);
+        }
+        else{
+            return response()->json(['success'=>'Data Kosong'], $this->successStatus);
+        }
 
-        $id='PG00000005';
-        $data['data']=Pengujian::where('id_pengujian',$id)->get();
-        return view('tes', $data);
-        print_r($data['data']);
+        // $id='PG00000005';
+        // $data['data']=Pengujian::where('id_pengujian',$id)->get();
+        // return view('tes', $data);
+        // print_r($data['data']);
     }
 
     public function selectByPerusahaan($id)
@@ -164,6 +164,18 @@ class TransaksiController extends Controller
             return response()->json(['success'=>'Berhasil dihapus'], $this->successStatus);
         }
         else{
+            return response()->json(['error'=>'Error'], $this->successStatus);
+        }
+    }
+
+    public function getHasilUji($id){
+        $data=Pengujian::find($id);
+        // return response()->download(public_path($pathToFile));
+        if(isset($data->hasil_pengujian)){
+            // return response()->json(['success'=>$data], $this->successStatus);
+            $pathToFile='/hasilpengujian'.'/'.$data->hasil_pengujian;
+            return response()->download(public_path($pathToFile));
+        }else if(isset($data->hasil_pengujian)==false){
             return response()->json(['error'=>'Error'], $this->successStatus);
         }
     }
